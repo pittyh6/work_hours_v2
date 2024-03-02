@@ -9,6 +9,9 @@
 - It is a Working Hours punch and history. Sum of the current week.
 
 What can you do with it?
+- Login 
+- Login Profile Manager and Staff
+- Post -> Share posts. 
 - Clock-in
 - Break-start
 - Break-end
