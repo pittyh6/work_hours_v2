@@ -6,8 +6,7 @@
 ![Begin Banner](/Documentation/top-1200x350.gif)
 
 ## Project description
-- It is a Working Hours punch and history. Sum of the current week.
-
+- It is a Working Hours punch. It contains Punch in, out, break in, out and history. Login features
 What can you do with it?
 - Login 
 - Login Profile Manager and Staff
