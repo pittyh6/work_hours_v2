@@ -8,7 +8,7 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended:true}))
 //Server static files
 app.use(express.static('public'))
-//Define home root
+//Define home route
 app.get('/', (req, res) => {
     res.render('pages/index')
 })
