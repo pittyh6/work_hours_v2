@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 //import base routes
 const baseRoutes = require('./routes/base_routes')
 app.use('/', baseRoutes)
+app.use('/post', baseRoutes)
 
 //Set the view Engine EJS
 app.set('views','./views')
