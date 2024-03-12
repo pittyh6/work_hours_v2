@@ -4,8 +4,8 @@ const app = express()
 const bodyParser = require('body-parser')
 
 //import base routes
-//const baseRoutes = require('./routes/base_routes')
-
+const baseRoutes = require('./routes/base_routes')
+app.use('/', baseRoutes)
 
 //Set the view Engine EJS
 app.set('views','./views')
@@ -15,10 +15,7 @@ app.use(bodyParser.urlencoded({ extended:true}))
 //Server static files
 app.use(express.static('public'))
 
-//Define home route
-app.get('/', (req, res) => {
-    res.render('pages/index')
-})
+
 
 //Start Server
 const PORT = process.env.PORT || 3000
