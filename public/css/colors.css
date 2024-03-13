@@ -1,10 +1,11 @@
 :root {
+  --black: #000;
   --blue: #2813c7;
-  --blue-purple: #5143be;
+  --blue-purple: #5143be; /*navbar background*/
   --orange: #f79748;
-  --purple: #7443be;
+  --purple: #7443be; /*body background*/
   --purple-dark: #6428be;
-  --yellow: #edda0d;
+  --yellow: #edda0d; /*navbar words*/
   --yellow-dark: #a39908;
-  --white: #fff;
+  --white: #fff; 
 }
