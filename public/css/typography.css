@@ -1,0 +1,17 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/*
+Oju = nav
+Playfair = h1
+pt sans = text
+*/
+
+:root{
+    --font-nav: "Ojuju", sans-serif;
+    --font-header: "Playfair Display", serif;
+    --font-text: "PT Sans", sans-serif;
+    --font-weight-text: 400; 
+    --font-weight-header: 600; 
+    --font-weight-bold: 900; 
+}
