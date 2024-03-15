@@ -6,5 +6,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: var(--purple)!important;
+    background-color: var(--purple-plain)!important;
+    font-family: var(--font-text);
+    font-weight: var(--font-weight-text);
 }
