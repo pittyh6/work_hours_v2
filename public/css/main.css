@@ -17,6 +17,7 @@ body{
     background-color: var(--blue-purple-Dark);
     height: 100px;
     padding: 15px 20px ;
+    
 }
 .logo{
     color: var(--orange);
@@ -29,6 +30,9 @@ body{
 }
 .staff-info > *{
     padding: 15px 10px 0 0;
+}
+.icon-menu{
+    width:30px;
 }
 .nav-bottom{
     background-color: var(--blue-dark);
