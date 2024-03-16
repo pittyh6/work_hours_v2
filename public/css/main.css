@@ -13,6 +13,19 @@ body{
 .nav-top{
     background-color: var(--blue-purple-Dark);
 }
-.nav-botton{
+.logo{
+    color: var(--orange);
+    font-size: 2em;
+}
+.staff-info{
+    display: flex;
+    color: var(--blue-light);
+    font-size: 0.7em;
+}
+.staff-info > *{
+    padding-right: 35px;
+}
+.nav-bottom{
     background-color: var(--blue-dark);
+    color: var(--yellow);
 }
