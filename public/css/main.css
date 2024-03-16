@@ -31,6 +31,7 @@ body{
     align-self: end;
     justify-self: end;
     width:35px;
+    display: block;
 }
 .staff-info{
     display: flex;
