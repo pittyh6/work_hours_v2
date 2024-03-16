@@ -10,3 +10,9 @@ body{
     font-family: var(--font-text);
     font-weight: var(--font-weight-text);
 }
+.nav-top{
+    background-color: var(--blue-purple-Dark);
+}
+.nav-botton{
+    background-color: var(--blue-dark);
+}

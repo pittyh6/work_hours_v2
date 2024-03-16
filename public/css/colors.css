@@ -1,7 +1,8 @@
 :root {
   --black: #000;
-  --blue: #2813c7;
-  --blue-purple: #5143be; /*navbar background*/
+  --blue-dark: #242a51; /*navbar bottom*/
+  --blue-purple: #5143be;
+  --blue-purple-Dark: #141035;  /*navbar top background*/
   --orange: #f79748;
   --purple: #7443be; /*body background*/
   --purple-plain: #3f1f4c; /*body background*/
