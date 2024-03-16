@@ -5,6 +5,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+li{
+    list-style: none;
+}
 body{
     background-color: var(--purple-plain)!important;
     font-family: var(--font-text);
@@ -12,20 +15,32 @@ body{
 }
 .nav-top{
     background-color: var(--blue-purple-Dark);
+    height: 100px;
+    padding: 15px 20px ;
 }
 .logo{
     color: var(--orange);
-    font-size: 2em;
+    font-size: 1.7em;
 }
 .staff-info{
     display: flex;
     color: var(--blue-light);
-    font-size: 0.7em;
+    font-size: 0.5em;
 }
 .staff-info > *{
-    padding-right: 35px;
+    padding: 15px 10px 0 0;
 }
 .nav-bottom{
     background-color: var(--blue-dark);
     color: var(--yellow);
+    font-size: 1.5em;
+}
+.items{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+}
+.item{
+    padding: 5px 0;
 }

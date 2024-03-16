@@ -19,6 +19,33 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*Desktop 1280×720 through 1920×1080*/
-@media only screen and (min-width:1280px){
-    
+@media only screen and (min-width: 1280px){
+    .nav-top{
+        background-color: var(--blue-purple-Dark);
+        height: 125px;
+        padding: 15px 40px;
+    }
+    .logo{
+        color: var(--orange);
+        font-size: 2em;
+    }
+    .staff-info{
+        font-size: 0.7em;
+    }
+    .staff-info > *{
+        padding: 25px 10px 0 0;
+
+    }
+    .nav-bottom{
+        font-size: 1.7em;
+    }
+    .items{
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-right: 50px;
+        padding: 10px 0;
+    }
+    .item{
+        margin: 0 40px;
+    }
 }
