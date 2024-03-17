@@ -13,6 +13,11 @@ body{
     font-family: var(--font-text);
     font-weight: var(--font-weight-text);
 }
+/*------------ General  ------------*/
+.show{
+    display: none;
+}
+/* ------------ ------------ ------------*/
 
 /* ------------ NavBar ------------*/
 .nav-top{
@@ -46,6 +51,11 @@ body{
     color: var(--yellow);
     font-size: 1.5em;
 }
+.nav-items{
+    background-color: var(--blue-dark);
+    position: absolute;
+    width:100%
+}
 .items{
     display: flex;
     flex-direction: column;
@@ -57,4 +67,8 @@ body{
 }
 /* ------------ ------------ ------------*/
 
-/* ------------  ------------*/
+/* ------------ MAIN ------------*/
+main{
+    
+}
+/* ------------ ------------ ------------*/
