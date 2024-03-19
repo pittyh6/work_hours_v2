@@ -7,6 +7,9 @@ const bodyParser = require('body-parser')
 const baseRoutes = require('./routes/base_routes')
 app.use('/', baseRoutes)
 app.use('/post', baseRoutes)
+app.use('/punch_log', baseRoutes)
+app.use('/login', baseRoutes)
+app.use('/punch', baseRoutes)
 
 //Set the view Engine EJS
 app.set('views','./views')
