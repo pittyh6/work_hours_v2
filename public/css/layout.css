@@ -48,9 +48,9 @@
   .nav-bottom {
     font-size: 1.7em;
   }
-  .nav-items{
+  .nav-items {
     position: relative;
-}
+  }
   .items {
     flex-direction: row;
     justify-content: flex-end;
@@ -59,6 +59,12 @@
   }
   .item {
     margin: 0 40px;
+  }
+  /* ------------ ------------ ------------*/
+
+  /* ------------ MAIN ------------*/
+  .container {
+    width: 75%;
   }
   /* ------------ ------------ ------------*/
 }

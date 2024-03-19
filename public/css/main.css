@@ -12,6 +12,9 @@ a{
     text-decoration: none;
     color: inherit;
 }
+h1{
+    color: var(--black);
+}
 body{
     background-color: var(--purple-plain)!important;
     font-family: var(--font-text);
@@ -73,6 +76,9 @@ body{
 
 /* ------------ MAIN ------------*/
 main{
-    
+    margin: auto;
+}
+.container{
+    width: 90%
 }
 /* ------------ ------------ ------------*/
