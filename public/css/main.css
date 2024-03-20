@@ -15,6 +15,10 @@ a{
 h1{
     color: var(--black);
 }
+h3, p{
+    color: var(--white);
+    font-family: var(--font-text);
+}
 body{
     background-color: var(--purple-plain)!important;
     font-family: var(--font-text);
