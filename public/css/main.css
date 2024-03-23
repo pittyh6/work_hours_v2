@@ -85,4 +85,18 @@ main{
 .container{
     width: 90%
 }
+
+/*---- Carousel ----*/
+.carousel{
+   
+}
+.carousel-item,
+.slide-img{
+    width: 100%;
+    height: 20vh;
+}
+/*------------------*/
+/*---- Phrase ----*/
+
+/*------------------*/
 /* ------------ ------------ ------------*/
