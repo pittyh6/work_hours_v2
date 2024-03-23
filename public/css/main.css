@@ -66,6 +66,7 @@ body {
   background-color: var(--blue-dark);
   position: absolute;
   width: 100%;
+  z-index: 2;
 }
 .items {
   display: flex;
@@ -87,11 +88,15 @@ main {
 }
 
 /*---- Carousel ----*/
-.carousel {
-}
+
 .carousel-item {
   width: 100%;
   height: 20vh;
+}
+.carousel-text{
+    position: absolute;
+    font-family: var(--font-header);
+    font-size: 2.5rem;
 }
 .slide-img {
   width: 100%;
