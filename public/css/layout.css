@@ -75,6 +75,9 @@
   .carousel-text{
     font-size: 4rem;
   }
+  .slide-img{
+  border-radius: 50px;
+  }
   /*------------------*/
   /*---- Phrase ----*/
   /* ------------ ------------ ------------*/
