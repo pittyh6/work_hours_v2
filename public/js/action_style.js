@@ -42,6 +42,6 @@ function prevItem() {
 }
 document.querySelector('.prev-btn').addEventListener('click', prevItem);
 document.querySelector('.next-btn').addEventListener('click', nextItem);
-setInterval(nextItem, 3000)
+setInterval(nextItem, 5000)
 showItem(0)
 /* ------------------ ----- ------------------ */
