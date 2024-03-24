@@ -20,6 +20,9 @@
 /*Desktop 1280×720 through 1920×1080*/
 @media only screen and (min-width: 1280px) {
   /*------------ General  ------------*/
+  h1 {
+    margin: 40px 0;
+  }
   .show {
     display: block;
   }
@@ -67,16 +70,15 @@
     width: 75%;
   }
   /*---- Carousel ----*/
-  
-  .carousel-item{
-    width: 100%;
+  .carousel {
     height: 50vh;
   }
-  .carousel-text{
+  
+  .carousel-text {
     font-size: 4rem;
   }
-  .slide-img{
-  border-radius: 50px;
+  .slide-img {
+    border-radius: 50px;
   }
   /*------------------*/
   /*---- Phrase ----*/
