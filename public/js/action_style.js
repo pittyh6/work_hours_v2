@@ -18,7 +18,7 @@ let currentItem = 0
 
 function showItem(index) {
     if (index < 0) {
-        index = currentItem.length - 1
+        index = currentItem.length -1
     } else if (index >= carouselItems.length) {
         index = 0
     }
@@ -38,8 +38,10 @@ function nextItem() {
     showItem(currentItem + 1)
 }
 function prevItem() {
-    showItem(currentItem - 1)
+    showItem(currentItem === 0 ? carouselItems.length - 1 : currentItem - 1);
 }
+document.querySelector('.prev-btn').addEventListener('click', prevItem);
+document.querySelector('.next-btn').addEventListener('click', nextItem);
 setInterval(nextItem, 3000)
 showItem(0)
 /* ------------------ ----- ------------------ */
