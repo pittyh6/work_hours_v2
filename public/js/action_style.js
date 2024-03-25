@@ -12,13 +12,13 @@ hamburgerMenu.addEventListener("click", function () {
 })
 /* ------------------ ----- ------------------ */
 
-/* ------------------ Carousel ------------------ */
+/* ------------------ Carousel IMG Home Page ------------------ */
 const carouselItems = document.querySelectorAll('.carousel-item')
 let currentItem = 0
 
 function showItem(index) {
     if (index < 0) {
-        index = currentItem.length -1
+        index = currentItem.length - 1
     } else if (index >= carouselItems.length) {
         index = 0
     }
@@ -44,4 +44,29 @@ document.querySelector('.prev-btn').addEventListener('click', prevItem);
 document.querySelector('.next-btn').addEventListener('click', nextItem);
 setInterval(nextItem, 5000)
 showItem(0)
-/* ------------------ ----- ------------------ */
+/* ---------------------- ------------------ ---------------------- */
+
+/* ------------------ Carousel Phrases Home Page ------------------ */
+const phraseArr = [
+    {
+        phrase: "Learn as if you will live forever, live like you will die tomorrow",
+        author: "—Mahatma Gandhi",
+    },
+    {
+        phrase: "Stay away from those people who try to disparage your ambitions. Small minds will always do that, but great minds will give you a feeling that you can become great too.",
+        author: "—Mark Twain",
+    },
+    {
+        phrase: "When you give joy to other people, you get more joy in return. You should give a good thought to the happiness that you can give out.",
+        author: "—Eleanor Roosevelt",
+    },
+    {
+        phrase: "When you change your thoughts, remember to also change your world.",
+        author: "—Norman Vincent Peale",
+    },
+    {
+        phrase: "It is only when we take chances that our lives improve. The initial and the most difficult risk we need to take is to become honest.",
+        author: "—Walter Anderson"
+    },
+]
+/* ---------------------- ------------------ ---------------------- */
