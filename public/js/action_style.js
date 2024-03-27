@@ -69,4 +69,12 @@ const phraseArr = [
         author: "—Walter Anderson"
     },
 ]
+function showPhrase(){
+    const phraseText = document.querySelector('#phrase-day')
+    const phraseAuthor = document.querySelector('#author')
+
+    console.log(phraseText.textContent)
+    console.log(phraseAuthor.textContent)
+}
+showPhrase()
 /* ---------------------- ------------------ ---------------------- */
