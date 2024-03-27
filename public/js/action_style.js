@@ -69,12 +69,23 @@ const phraseArr = [
         author: "—Walter Anderson"
     },
 ]
-function showPhrase(){
+function showPhrase() {
     const phraseText = document.querySelector('#phrase-day')
     const phraseAuthor = document.querySelector('#author')
 
     console.log(phraseText.textContent)
     console.log(phraseAuthor.textContent)
+    console.log(phraseArr[0].phrase)
+
+    for (let i = 0; i < phraseArr.length; i++) {
+        setTimeout(function () {
+            phraseText.textContent = phraseArr[i].phrase
+            phraseAuthor.textContent = phraseArr[i].author
+            console.log(phraseArr[1].phrase)
+        }, i * 5000)
+
+    }
+
 }
 showPhrase()
 /* ---------------------- ------------------ ---------------------- */
