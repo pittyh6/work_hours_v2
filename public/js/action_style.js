@@ -49,6 +49,10 @@ showItem(0)
 /* ------------------ Carousel Phrases Home Page ------------------ */
 const phraseArr = [
     {
+        phrase: "We cannot solve problems with the kind of thinking we employed when we came up with them.",
+        author: "—Albert Einstein",
+    },
+    {
         phrase: "Learn as if you will live forever, live like you will die tomorrow",
         author: "—Mahatma Gandhi",
     },
@@ -72,20 +76,17 @@ const phraseArr = [
 function showPhrase() {
     const phraseText = document.querySelector('#phrase-day')
     const phraseAuthor = document.querySelector('#author')
+    let index = 0
 
-    console.log(phraseText.textContent)
-    console.log(phraseAuthor.textContent)
-    console.log(phraseArr[0].phrase)
+    function displayNextPhrase() {
+        phraseText.textContent = phraseArr[index].phrase
+        phraseAuthor.textContent = phraseArr[index].author
+        console.log(phraseArr[index].phrase)
 
-    for (let i = 0; i < phraseArr.length; i++) {
-        setTimeout(function () {
-            phraseText.textContent = phraseArr[i].phrase
-            phraseAuthor.textContent = phraseArr[i].author
-            console.log(phraseArr[1].phrase)
-        }, i * 5000)
-
+        index = (index + 1) % phraseArr.length;
+        setTimeout(displayNextPhrase, 5000)
     }
-
+    displayNextPhrase()
 }
 showPhrase()
 /* ---------------------- ------------------ ---------------------- */
