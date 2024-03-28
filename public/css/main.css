@@ -15,7 +15,7 @@ a {
 h1 {
   color: var(--black);
   font-family: var(--font-header);
-  margin: 20px 0;
+  margin: 20px 10px;
 }
 h3,
 p {
