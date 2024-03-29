@@ -68,8 +68,6 @@ function showPhrase() {
     function displayNextPhrase() {
         phraseText.textContent = phraseArr[index].phrase
         phraseAuthor.textContent = phraseArr[index].author
-        console.log(phraseArr[index].phrase)
-
         index = (index + 1) % phraseArr.length;
         setTimeout(displayNextPhrase, 5000)
     }
