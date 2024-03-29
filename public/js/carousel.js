@@ -1,5 +1,5 @@
 
-/* ------------------ Carousel IMG Home Page ------------------ */
+/* ------------------ Carousel IMG run Home Page ------------------ */
 const carouselItems = document.querySelectorAll('.carousel-item')
 let currentItem = 0
 
@@ -32,6 +32,18 @@ document.querySelector('.next-btn').addEventListener('click', nextItem);
 setInterval(nextItem, 5000)
 showItem(0)
 /* ---------------------- ------------------ ---------------------- */
+/* ------------------ Carousel IMG link to Pages ------------------ */
+document.addEventListener('DOMContentLoaded', function(){
+    const carouselItem = document.querySelectorAll('.carousel-item')
+    console.log( "carouselItem: ", carouselItem)
+   
+    $(document).click(function(item){
+        console.log(event.target)
+    })
+    
+})
+/* ---------------------- ------------------ ---------------------- */
+
 
 /* ------------------ Carousel Phrases Home Page ------------------ */
 const phraseArr = [
