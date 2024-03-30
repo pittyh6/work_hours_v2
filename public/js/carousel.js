@@ -29,7 +29,7 @@ function prevItem() {
 }
 document.querySelector('.prev-btn').addEventListener('click', prevItem);
 document.querySelector('.next-btn').addEventListener('click', nextItem);
-setInterval(nextItem, 5000)
+setInterval(nextItem, 3000)
 showItem(0)
 /* ---------------------- ------------------ ---------------------- */
 /* ------------------ Carousel IMG link to Pages ------------------ */
@@ -83,7 +83,7 @@ function showPhrase() {
         phraseText.textContent = phraseArr[index].phrase
         phraseAuthor.textContent = phraseArr[index].author
         index = (index + 1) % phraseArr.length;
-        setTimeout(displayNextPhrase, 5000)
+        setTimeout(displayNextPhrase, 6000)
     }
     displayNextPhrase()
 }
