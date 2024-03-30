@@ -38,16 +38,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.querySelectorAll('.slide-img');
     carousel.forEach(img => {
         img.addEventListener('click', function (event) {
-            const findElement = document.querySelector('.active')
-            const findElementA = document.querySelector('.active > a')
             const findElementURL = document.querySelector('.active > a').href
-            console.log("find element: ", findElement)
-            console.log("Find element A : ", findElementA)
-            console.log("Find element URL : ", findElementURL)
-            window.open(findElementURL)
+            //window.open(findElementURL)
+            window.location.replace(findElementURL)
         });
     })
-
 })
     
 
