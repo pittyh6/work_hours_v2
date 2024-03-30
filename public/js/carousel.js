@@ -34,13 +34,25 @@ showItem(0)
 /* ---------------------- ------------------ ---------------------- */
 /* ------------------ Carousel IMG link to Pages ------------------ */
 
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.carousel ');
     carousel.addEventListener('click', function(event) {
        const findElement = document.querySelector('.active')
        console.log("find element: ", findElement)
     });
-});
+});*/
+document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.querySelectorAll('.slide-img');
+    carousel.forEach(img => {
+        img.addEventListener('click', function (event) {
+            const findElement = document.querySelector('.active')
+            console.log("find element: ", findElement)
+        });
+    })
+
+})
+    
+
 /* ---------------------- ------------------ ---------------------- */
 
 
