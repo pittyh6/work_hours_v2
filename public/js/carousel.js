@@ -33,15 +33,14 @@ setInterval(nextItem, 5000)
 showItem(0)
 /* ---------------------- ------------------ ---------------------- */
 /* ------------------ Carousel IMG link to Pages ------------------ */
-document.addEventListener('DOMContentLoaded', function(){
-    const carouselItem = document.querySelectorAll('.carousel-item')
-    console.log( "carouselItem: ", carouselItem)
-   
-    $(document).click(function(item){
-        console.log(event.target)
-    })
-    
-})
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.carousel ');
+    carousel.addEventListener('click', function(event) {
+       const findElement = document.querySelector('.active')
+       console.log("find element: ", findElement)
+    });
+});
 /* ---------------------- ------------------ ---------------------- */
 
 
