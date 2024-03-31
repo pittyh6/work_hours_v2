@@ -34,7 +34,8 @@ body {
 /* ------------ ------------ ------------*/
  /*------------ Reusable  ------------*/
  .slide-img,
- .phrase {
+ .phrase,
+ button {
    border-radius: 20px;
  }
 /* ------------ NavBar ------------*/
@@ -171,12 +172,13 @@ main {
 
 /* ---------------- PUNCH PAGE ---------------*/
 .punch_clock{
-  margin: 30px 0;
+  margin: 30px 10px;
 }
 .clock_icon{
   width: 60px;
   position: absolute;
   z-index: 1;
+  padding: 10px;
 }
 .clock_btn{
   height: 60px;
