@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 //staff table schema
 const employeeSchema = new Schema({
     employeeId: {type: Number, required: true},
-    employeeName: {type: String,require: true},
+    employeeFirstName: {type: String,require: true},
+    employeeLastName: {type: String,require: true},
     employeePassword: {type:String, require: true},
 });
 // punch hours table schema
