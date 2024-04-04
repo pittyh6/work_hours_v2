@@ -5,9 +5,9 @@ const Time = require('../models/m_time')
 const {Employee} = require('../models/m_time')
 
 const employee = new Employee({
-    employeeId: 100001,
-    employeeFirstName: 'Millie',
-    employeeLastName: 'Smith',
+    employeeId: 100002,
+    employeeFirstName: 'Nina',
+    employeeLastName: 'Pta',
     employeePassword: 'temp',
 })
 //employee.save()
