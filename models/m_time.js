@@ -10,7 +10,7 @@ const employeeSchema = new Schema({
 });
 // punch hours table schema
 const punchSchema = new Schema({
-    employeeId:{type: Schema.Types.employeeId, ref: 'Employee'},
+    employeeId:{type: Schema.Types.ObjectId, ref: 'Employee'},
     day: {type: String, default: () => moment().format('YYYY-MM-DD')},
     weekDay: String,
     punchIn: String,
@@ -21,8 +21,8 @@ const punchSchema = new Schema({
 
 // Post table schema 
 const postSchema = new Schema({
-    employeeId: {type: Schema.Types.employeeId, ref: 'Employee'},
-    employeeName: {type: Schema.Types.employeeName, ref: 'Employee'},
+    employeeId: {type: Schema.Types.ObjectId, ref: 'Employee'},
+    employeeName: {type: Schema.Types.String, ref: 'Employee'},
     post: String,
 });
 
