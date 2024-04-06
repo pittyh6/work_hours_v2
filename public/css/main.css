@@ -22,6 +22,7 @@ p {
   color: var(--white);
   font-family: var(--font-text);
 }
+
 button{
   background-color: var(--blue-light);
   border: none;
@@ -64,6 +65,10 @@ body {
   width: 35px;
   display: block;
 }
+.employee-info-form{
+  display: flex;
+  justify-content: space-between;
+}
 .staff-info {
   display: flex;
   color: var(--blue-light);
@@ -71,6 +76,9 @@ body {
 }
 .staff-info > * {
   padding: 15px 10px 0 0;
+}
+.staff-info-id{
+  padding: 0 15px;
 }
 .nav-bottom {
   background-color: var(--blue-dark);
