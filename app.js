@@ -10,7 +10,6 @@ const app = express()
 app.use( async function (req, res, next) {
     try{
         const employee = await Employee.findOne({employeeId: 100001})
-        console.log("employee.employeeId: ", employee.employeeId)
         res.locals.employee = employee
         next()
     }catch(error){
