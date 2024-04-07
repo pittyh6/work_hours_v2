@@ -12,7 +12,9 @@ const employee = new Employee({
 })
 //employee.save()
 
-
+router.post('/punchIn', async (req, res) => {
+    console.log("r_time entered.")
+})
 
 
 
