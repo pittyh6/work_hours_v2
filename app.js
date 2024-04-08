@@ -26,13 +26,15 @@ app.use('/post', baseRoutes)
 app.use('/punch_log', baseRoutes)
 app.use('/login', baseRoutes)
 app.use('/punch', baseRoutes)
-app.use('/api/time', timeRouter)
+
 //Set the view Engine EJS
 app.set('views','./views')
 app.set('view engine', 'ejs')
 //parse json bodies
-app.use(bodyParser.urlencoded({ extended:true}))
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended:true}))
+app.use('/api/time', timeRouter)
+
 
 //Server static files
 app.use(express.static('public'))
