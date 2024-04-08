@@ -14,6 +14,13 @@ const employee = new Employee({
 
 router.post('/punchIn', async (req, res) => {
     console.log("r_time entered.")
+   try{
+    const {employeeId} = req.body;
+    console.log('employeeId: ', employeeId)
+   }catch(err){
+    console.log("error fetch /punchIn: ", err)
+    res.status(500).send("internal Server error: ")
+   }
 })
 
 

@@ -30,10 +30,13 @@ app.use('/api/time', timeRouter)
 //Set the view Engine EJS
 app.set('views','./views')
 app.set('view engine', 'ejs')
+//parse json bodies
 app.use(bodyParser.urlencoded({ extended:true}))
+app.use(bodyParser.json())
 
 //Server static files
 app.use(express.static('public'))
+
 
 
 
