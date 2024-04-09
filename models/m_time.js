@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 //staff table schema
 const employeeSchema = new Schema({
-    employeeId: {type: Number, required: true},
+    employeeId: {type: Number, unique: true, required: true},
     employeeFirstName: {type: String,require: true},
     employeeLastName: {type: String,require: true},
     employeePassword: {type:String, require: true},
