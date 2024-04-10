@@ -18,8 +18,27 @@ router.post('/punchIn', async (req, res) => {
     console.log('employeeId: ', employeeId)
 
 
-    try {
-        const findEmployeeId = await Punch.findOne({ employeeId: employeeId});
+    //maybe find it first in employee and then check it on punch
+    const findEmp = Employee.findOne({ employeeId: employeeId}).then(found=>{
+        if(found) {
+            console.log("founded: ", found.employeeId)
+            Punch.findOne({employeeId: found.employeeId}).then(foundPunch=>{
+                if(foundPunch){
+                    console.log("foundPunch: ")
+                }else{
+                    console.log("did not foundPunch: ")
+                }
+            })
+        }else{
+            console.log("did not found: ", found)
+        }
+    })
+    
+    
+   
+
+   /* try {
+        const findEmployeeId = await Punch.findOne({ employeeId: employeeId });
         if (objectId.isValid(findEmployeeId)) {
             console.log("uhuuuuu.. Employee Id already exists: ", findEmployeeId)
         } else {
@@ -28,7 +47,7 @@ router.post('/punchIn', async (req, res) => {
     } catch (error) {
         console.error("Error find employee id in punch table: ", error)
         res.status(500).send("Internal Server Error.")
-    }
+    }*/
 
 })
 
