@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Time = require('../models/m_time')
+var mongoose = require('mongoose');
 
 const { Employee, Punch } = require('../models/m_time')
 
@@ -13,12 +14,13 @@ const employee = new Employee({
 //employee.save()
 
 router.post('/punchIn', async (req, res) => {
-    const { employeeId } = req.body;
+    const { employeeId } = req.body
     console.log('employeeId: ', employeeId)
-   
+
+
     try {
-        const findEmployeeId = await Punch.findOne({ employeeId: ememployeeIdployee });
-        if (findEmployeeIdPunch) {
+        const findEmployeeId = await Punch.findOne({ employeeId: employeeId});
+        if (objectId.isValid(findEmployeeId)) {
             console.log("uhuuuuu.. Employee Id already exists: ", findEmployeeId)
         } else {
             console.log('Did not find employee id: ', employeeId)
