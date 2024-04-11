@@ -21,16 +21,17 @@ router.post('/punchIn', async (req, res) => {
     //maybe find it first in employee and then check it on punch
     const findEmp = Employee.findOne({ employeeId: employeeId}).then(found=>{
         if(found) {
-            console.log("founded: ", found.employeeId)
-            Punch.findOne({employeeId: found.employeeId}).then(foundPunch=>{
+            const id = found.employeeId
+            console.log("founded Employee: ", id)
+            Punch.findOne({employeeId: found}).then(foundPunch=>{
                 if(foundPunch){
-                    console.log("foundPunch: ")
+                    console.log("foundPunch Punch: ", found)
                 }else{
-                    console.log("did not foundPunch: ")
+                    console.log("did not foundPunch Punch: ", found)
                 }
             })
         }else{
-            console.log("did not found: ", found)
+            console.log("did not found Employee: ", found)
         }
     })
     
