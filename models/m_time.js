@@ -9,8 +9,9 @@ const employeeSchema = new Schema({
     employeePassword: {type:String, require: true},
 });
 // punch hours table schema
-const punchSchema = new Schema({
-    employeeId:{type: Schema.Types.ObjectId, ref: 'Employee'},
+const punchSchema = new mongoose.Schema({
+    //employeeId:{type: mongoose.Schema.Types.ObjectId, ref: 'Employee', required: true},
+    employeeId: {type: Number, required: true},
     day: {type: String, default: () => moment().format('YYYY-MM-DD')},
     weekDay: String,
     punchIn: String,
@@ -20,8 +21,9 @@ const punchSchema = new Schema({
 });
 
 // Post table schema 
-const postSchema = new Schema({
-    employeeId: {type: Schema.Types.ObjectId, ref: 'Employee'},
+const postSchema = new mongoose.Schema({
+    //employeeId: {type: mongoose.Schema.Types.ObjectId, ref: 'Employee', required: true},
+    employeeId: {type: Number, required: true},
     employeeName: {type: Schema.Types.String, ref: 'Employee'},
     post: String,
 });
