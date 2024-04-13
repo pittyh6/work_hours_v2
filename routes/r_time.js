@@ -24,38 +24,21 @@ const punch = new Punch({
     punchOut: '17:00',
 })
 //punch.save()
+var todayDate = new Date().toISOString().substr(0, 10);
 
 router.post('/punchIn', async (req, res) => {
+  
     const { employeeId } = req.body
     console.log('employeeId: ', employeeId)
+    console.log("todayDate: ",todayDate )
     
-    Punch.findOne({ employeeId: employeeId}).then((punch) => {
+    Punch.findOne({ employeeId: employeeId, day: todayDate}).then((punch) => {
         if(!punch){
             console.log("Did not find Id in Punch: ", punch)
         }else{
             console.log("Founded id in Punch: ", punch)
         }
     })
-
-    //maybe find it first in employee and then check it on punch
-    /*const findEmp = Employee.findOne({ employeeId: employeeId }).then(found => {
-        if (found) {
-            const id = found.employeeId
-            console.log("founded Employee: ", found)
-            console.log("get only the id from EMployee table: ", id)
-            Punch.find({ employeeId: id }).then(foundPunch => {
-                if (foundPunch) {
-                    console.log("foundPunch Punch: ", foundPunch)
-                } else {
-                    console.log("did not foundPunch Punch: ", foundPunch)
-                }
-            })
-        } else {
-            console.log("did not found Employee: ", found)
-        }
-    })*/
-
-
 
 })
 
