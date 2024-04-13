@@ -27,7 +27,6 @@ const punch = new Punch({
 var todayDate = new Date().toISOString().substr(0, 10);
 
 router.post('/punchIn', async (req, res) => {
-  
     const { employeeId } = req.body
     console.log('employeeId: ', employeeId)
     console.log("todayDate: ",todayDate )
@@ -36,7 +35,7 @@ router.post('/punchIn', async (req, res) => {
         if(!punch){
             console.log("Did not find Id in Punch: ", punch)
         }else{
-            console.log("Founded id in Punch: ", punch)
+            console.log("Punch day: " + todayDate + "id: " + employeeId + " Already exists" )
         }
     })
 
