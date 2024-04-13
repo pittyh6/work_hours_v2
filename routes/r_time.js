@@ -28,6 +28,14 @@ const punch = new Punch({
 router.post('/punchIn', async (req, res) => {
     const { employeeId } = req.body
     console.log('employeeId: ', employeeId)
+    
+    Punch.findOne({ employeeId: employeeId}).then((punch) => {
+        if(!punch){
+            console.log("Did not find Id in Punch: ", punch)
+        }else{
+            console.log("Founded id in Punch: ", punch)
+        }
+    })
 
     //maybe find it first in employee and then check it on punch
     /*const findEmp = Employee.findOne({ employeeId: employeeId }).then(found => {
