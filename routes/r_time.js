@@ -24,18 +24,29 @@ const punch = new Punch({
     punchOut: '17:00',
 })
 //punch.save()
-var todayDate = new Date().toISOString().substr(0, 10);
+
 
 router.post('/punchIn', async (req, res) => {
     const { employeeId } = req.body
-    //todayDate='2024-04-12'
-    Punch.findOne({ employeeId: employeeId, day: todayDate, punchIn: {$ne:null}}).then((punch) => {
-        if(!punch){
+    //let todayDate = new Date().toISOString().substr(0, 10);
+    //let todayDate = new Date().toLocaleString(undefined, {timeZone: "Australia/Sydney"})
+    let todayDate = new Date()
+    let day = new Intl.DateTimeFormat(['ban', 'id']).format(todayDate);
+console.log("day: ", day)
+    let fullDate = new Intl.DateTimeFormat('en-GB', {
+        dateStyle: 'full',
+        timeStyle: 'long',
+        timeZone: 'Australia/Sydney',
+    }).format(todayDate)
+    console.log("fullDate: ", fullDate)
+
+    Punch.findOne({ employeeId: employeeId, day: todayDate, punchIn: { $ne: null } }).then((punch) => {
+        if (!punch) {
             console.log("Did not find Id in Punch: ", punch)
-        }else if(punch.punchIn == ''){
+        } else if (punch.punchIn == '') {
             console.log("Punch day: " + todayDate + " Punch In is NULL.")
-        }else{
-            console.log("Punch day: " + todayDate + " id: " + employeeId + " Already exists" )
+        } else {
+            console.log("Punch day: " + todayDate + " id: " + employeeId + " Already exists")
         }
     })
 
