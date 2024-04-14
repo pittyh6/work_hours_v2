@@ -32,7 +32,7 @@ router.post('/punchIn', async (req, res) => {
     //let todayDate = new Date().toLocaleString(undefined, {timeZone: "Australia/Sydney"})
     let todayDate = new Date()
     let day = new Intl.DateTimeFormat(['ban', 'id']).format(todayDate);
-console.log("day: ", day)
+    console.log("day: ", day)
     let fullDate = new Intl.DateTimeFormat('en-GB', {
         dateStyle: 'full',
         timeStyle: 'long',
