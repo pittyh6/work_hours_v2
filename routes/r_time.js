@@ -16,9 +16,9 @@ const employee = new Employee({
 
 const punch = new Punch({
     employeeId: 100001,
-    day: '2024-04-14',
+    day: '15/04/2024',
     weekDay: 'Friday',
-    punchIn: '',
+    punchIn: '15:19',
     breakStart: '12:30',
     breakEnd: '13:00',
     punchOut: '17:00',
@@ -28,19 +28,13 @@ const punch = new Punch({
 
 router.post('/punchIn', async (req, res) => {
     const { employeeId } = req.body
-    //let todayDate = new Date().toISOString().substr(0, 10);
-    //let todayDate = new Date().toLocaleString(undefined, {timeZone: "Australia/Sydney"})
     let todayDate = new Date()
-    let day = new Intl.DateTimeFormat(['ban', 'id']).format(todayDate);
-    console.log("day: ", day)
-    let fullDate = new Intl.DateTimeFormat('en-GB', {
-        dateStyle: 'full',
-        timeStyle: 'long',
-        timeZone: 'Australia/Sydney',
-    }).format(todayDate)
-    console.log("fullDate: ", fullDate)
-
-    Punch.findOne({ employeeId: employeeId, day: todayDate, punchIn: { $ne: null } }).then((punch) => {
+    let day = new Intl.DateTimeFormat('en-GB', { dateStyle: 'short'}).format(todayDate)
+    let weekDay = new Intl.DateTimeFormat('en-GB', {weekday: 'long'}).format(todayDate)
+    let hour = new Intl.DateTimeFormat('en-GB', {timeStyle: 'short'}).format(todayDate)
+    console.log("weekDay: " + weekDay + " day: " + day + " hour: " + hour)
+    
+    Punch.findOne({ employeeId: employeeId, day: day, punchIn: { $ne: null } }).then((punch) => {
         if (!punch) {
             console.log("Did not find Id in Punch: ", punch)
         } else if (punch.punchIn == '') {

@@ -12,7 +12,7 @@ const employeeSchema = new Schema({
 const punchSchema = new mongoose.Schema({
     //employeeId:{type: mongoose.Schema.Types.ObjectId, ref: 'Employee', required: true},
     employeeId: {type: Number, required: true},
-    day: {type: String, default: () => moment().format('YYYY-MM-DD')},
+    day: {type: String, default: () => moment().format('DD/MM/YYYY')},
     weekDay: String,
     punchIn: String,
     breakStart: String,
