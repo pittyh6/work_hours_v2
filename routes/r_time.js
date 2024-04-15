@@ -25,18 +25,16 @@ const punch = new Punch({
 })
 //punch.save()
 
-
+//PunchIn hour
 router.post('/punchIn', async (req, res) => {
     const { employeeId } = req.body
     let todayDate = new Date()
     let day = new Intl.DateTimeFormat('en-GB', { dateStyle: 'short' }).format(todayDate)
     let weekDay = new Intl.DateTimeFormat('en-GB', { weekday: 'long' }).format(todayDate)
     let hour = new Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(todayDate)
-    console.log("weekDay: " + weekDay + " day: " + day + " hour: " + hour)
-
+   
     Punch.findOne({ employeeId: employeeId, day: day, punchIn: { $ne: null } }).then((punch) => {
         if (!punch) {
-            console.log("Did not find Id in Punch: ", punch)
             try {
                 Punch.create({
                     employeeId: employeeId,
@@ -45,18 +43,21 @@ router.post('/punchIn', async (req, res) => {
                     punchIn: hour,
                 })
             } catch (error) {
-                console.log("Error insertOne: ", error)
+                console.log("Error add punchIn database: ", error)
             }
             console.log("Insert Punch In with success!")
         } else if (punch.punchIn == '') {
-            console.log("Punch day: " + todayDate + " Punch In is NULL.")
+            console.log(day + " Punch In is NULL.")
         } else {
-            console.log("Punch day: " + todayDate + " id: " + employeeId + " Already exists")
+            console.log(day + " id: " + employeeId + " Punch Already exists")
         }
     })
-
 })
 
+router.post('/breakStart', async (req, res) => {
+    const {employeeId} = req.body
+    console.log("api break start entered: ", employeeId)
+})
 
 
 
