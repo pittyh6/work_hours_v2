@@ -56,7 +56,18 @@ router.post('/punchIn', async (req, res) => {
 
 router.post('/breakStart', async (req, res) => {
     const {employeeId} = req.body
-    console.log("api break start entered: ", employeeId)
+    let todayDate = new Date()
+    console.log("todayDate: ", todayDate)
+    
+    Punch.findOne({ employeeId: employeeId, day: todayDate, breakStart: {$ne: null} }).then((foundBreak) => {
+        if(!foundBreak){
+            console.log("Did NOT found id: ", employeeId)
+        }else if(foundBreak.breakStart == ''){
+            console.log(day + " BreakStart In is NULL.")
+        }else{
+            console.log("Founded id: ", foundBreak)
+        }
+    })
 })
 
 

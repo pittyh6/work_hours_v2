@@ -35,7 +35,6 @@ btn_break_start.addEventListener('click', async function (e) {
         body: JSON.stringify({employeeId})
     }
     try {
-        console.log("Break starts clicked")
         const response = await fetch('/api/time/breakStart', options)
         if(!response.ok){
             throw new Error(`HTTP error! Status: ${response.status}`)
