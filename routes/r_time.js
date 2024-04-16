@@ -109,32 +109,35 @@ router.post('/breakEnd', async (req, res) => {
     let hour = Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(todayDate)
     Punch.findOne({ employeeId: employeeId, day: day }).then(punch => {
         if (!punch) {
-            Punch.create({
-                employeeId: employeeId,
-                day: day,
-                weekDay: weekDay,
-                punchIn: '',
-                breakStart: '',
-                breakEnd: hour,
-                punchOut: '',
-            })
-            console.log("Created break end register: ", punch)
-        }else{
-            Punch.findOne({employeeId: employeeId, day: day, breakEnd: {$ne: null}}).then(foundBreak => {
-                console.log("Founded breakEnd equal NULL ", foundBreak)
-                if(foundBreak.breakEnd = ''){
-                    try{
+            try{
+                Punch.create({
+                    employeeId: employeeId,
+                    day: day,
+                    weekDay: weekDay,
+                    punchIn: '',
+                    breakStart: '',
+                    breakEnd: hour,
+                    punchOut: '',
+                })
+                console.log("Created break end register: ", punch)
+            }catch (error) {
+                console.error("Error to register break start: ", error)
+            } 
+        } else {
+            Punch.findOne({ employeeId: employeeId, day: day, breakEnd: { $ne: null } }).then(foundBreak => {
+                if (foundBreak.breakEnd = '') {
+                    try {
                         foundBreak.breakEnd = hour
                         foundBreak.save().then(breakSave => {
                             console.log("Break End Updated with success. ", foundBreak)
                         })
-                    }catch(error){
+                    } catch (error) {
                         console.error("Error update break end: ", error)
                     }
-                }else{
+                } else {
                     console.log("break End already exists: ", punch)
                 }
-               
+
             })
         }
     })
@@ -142,8 +145,42 @@ router.post('/breakEnd', async (req, res) => {
 
 
 //clock out 
-router.post('/clockOut', async(req, res) => {
-    console.log("entered clock out")
+router.post('/clockOut', async (req, res) => {
+    const { employeeId } = req.body
+    let todayDate = new Date()
+    let day = Intl.DateTimeFormat('en-GB', { dateStyle: 'short' }).format(todayDate)
+    let weekDay = Intl.DateTimeFormat('en-GB', { weekday: 'long' }).format(todayDate)
+    let hour = Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(todayDate)
+
+    Punch.findOne({ employeeId: employeeId, day: day }).then(punch => {
+        if (!punch) {
+            Punch.create({
+                employeeId: employeeId,
+                day: day,
+                weekDay: weekDay,
+                punchIn: '',
+                breakStart: '',
+                breakEnd: '',
+                punchOut: hour,
+            })
+            console.log("Clock Out created with success: ", punch)
+        }else{
+            Punch.findOne({employeeId: employeeId, day: day, punchOut: {$ne: null}}).then(foundClockOut => {
+                try{
+                    if(foundClockOut.punchOut == ''){
+                        foundClockOut.punchOut = hour
+                        foundClockOut.save().then(saveClockOut => {
+                            console.log('Clock Out Updated with success. ', saveClockOut)
+                        })
+                    }else{
+                        console.error("Clock Out Already exists: ", foundClockOut)
+                    }
+                }catch(error){
+                    console.error("Error update Clock Out: ", error)
+                }
+            })
+        }
+    })
 })
 
 module.exports = router
