@@ -22,7 +22,17 @@ p {
   color: var(--white);
   font-family: var(--font-text);
 }
-
+p{
+  padding: 3px 25px
+}
+hr{
+  border: 0;
+  border-bottom: 10px solid var(--blue-light);
+  border-color: var(--blue-light);
+  border-style: outset;
+  border-radius: 63px;
+  margin: 15px 0;
+}
 button{
   background-color: var(--blue-light);
   border: none;
@@ -205,5 +215,14 @@ main {
   width: 100%;
   position: relative;
   left: 0;
+}
+/* ------------ ------------ ------------*/
+
+
+/* ---------------- History Log PAGE ---------------*/
+.total-week{
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: var(--font-weight-header);
 }
 /* ------------ ------------ ------------*/

@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../partials/head') %>
-    <title>History Log</title>
+        <title>History Log</title>
 </head>
+
 <body>
     <%- include('../partials/header') %>
-    
-    <h1>History Log</h1>
+        <main class="container">
+            <h1>History Log</h1>
+            <div class="log">
+                <p class="day" id="l-day">Sanday: 17/04/2024</p>
+                <p class="clock-in" id="l-clock-in">Clock In: 8:00</p>
+                <p class="break-start" id="l-break-start">Break Start: 12:00</p>
+                <p class="break-end" id="l-break-end">Break End: 13:00</p>
+                <p class="clock-out" id="l-clock-out">Clock Out: 17:00</p>
+                <p class="total-day" id="l-total-day">Total day: 7:00</p>
+                <hr>
+            </div>
+            <div class="total-week">
+                <p class="total-week-hour" id="l-total-week">Total week: 7:00</p>
+            </div>
+        </main>
 
 
-    <!-- FOOTER -->
-    <%- include('../partials/footer') %>
+        <!-- FOOTER -->
+        <%- include('../partials/footer') %>
 </body>
+
 </html>
