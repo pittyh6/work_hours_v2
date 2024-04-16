@@ -83,7 +83,7 @@ router.post('/breakStart', async (req, res) => {
             Punch.findOne({ employeeId: employeeId, day: day, breakStart: { $ne: null } }).then((foundBreak) => {
                 if (!foundBreak) {
                     console.log("Did NOT found id: ", employeeId)
-                } else if (foundBreak.breakStart == '') {
+                } else if (foundBreak.breakStart == '' && foundBreak.breakEnd == '' && foundBreak.punchOut == '') {
                     try {
                         foundBreak.breakStart = hour
                         foundBreak.save().then(saveUpdate => {
@@ -125,7 +125,7 @@ router.post('/breakEnd', async (req, res) => {
             } 
         } else {
             Punch.findOne({ employeeId: employeeId, day: day, breakEnd: { $ne: null } }).then(foundBreak => {
-                if (foundBreak.breakEnd = '') {
+                if (foundBreak.breakEnd == '' && foundBreak.punchOut == '') {
                     try {
                         foundBreak.breakEnd = hour
                         foundBreak.save().then(breakSave => {
@@ -163,7 +163,7 @@ router.post('/clockOut', async (req, res) => {
                 breakEnd: '',
                 punchOut: hour,
             })
-            console.log("Clock Out created with success: ", punch)
+            console.log("Clock Out created with success: ")
         }else{
             Punch.findOne({employeeId: employeeId, day: day, punchOut: {$ne: null}}).then(foundClockOut => {
                 try{
