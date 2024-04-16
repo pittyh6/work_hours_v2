@@ -84,13 +84,12 @@ router.post('/breakStart', async (req, res) => {
                 if (!foundBreak) {
                     console.log("Did NOT found id: ", employeeId)
                 } else if (foundBreak.breakStart == '') {
-                    console.log(day + " BreakStart In is NULL.")
-                    try{
+                    try {
                         foundBreak.breakStart = hour
                         foundBreak.save().then(saveUpdate => {
                             console.log("Break start updated with success: ", foundBreak)
                         })
-                    }catch(error){
+                    } catch (error) {
                         console.error("Error update break start: ", error)
                     }
                 } else {
@@ -102,8 +101,43 @@ router.post('/breakStart', async (req, res) => {
 })
 
 //Break End
-router.post('/breakEnd',async (req, res) => {
-    console.log("break end punch entered")
+router.post('/breakEnd', async (req, res) => {
+    const { employeeId } = req.body
+    let todayDate = new Date()
+    let day = Intl.DateTimeFormat('en-GB', { dateStyle: 'short' }).format(todayDate)
+    let weekDay = Intl.DateTimeFormat('en-GB', { weekday: 'long' }).format(todayDate)
+    let hour = Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(todayDate)
+    Punch.findOne({ employeeId: employeeId, day: day }).then(punch => {
+        if (!punch) {
+            Punch.create({
+                employeeId: employeeId,
+                day: day,
+                weekDay: weekDay,
+                punchIn: '',
+                breakStart: '',
+                breakEnd: hour,
+                punchOut: '',
+            })
+            console.log("Created break end register: ", punch)
+        }else{
+            Punch.findOne({employeeId: employeeId, day: day, breakEnd: {$ne: null}}).then(foundBreak => {
+                console.log("Founded breakEnd equal NULL ", foundBreak)
+                if(foundBreak.breakEnd = ''){
+                    try{
+                        foundBreak.breakEnd = hour
+                        foundBreak.save().then(breakSave => {
+                            console.log("Break End Updated with success. ", foundBreak)
+                        })
+                    }catch(error){
+                        console.error("Error update break end: ", error)
+                    }
+                }else{
+                    console.log("break End already exists: ", punch)
+                }
+               
+            })
+        }
+    })
 })
 
 
