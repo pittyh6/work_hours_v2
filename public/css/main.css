@@ -47,6 +47,10 @@ body {
  .phrase {
    border-radius: 20px;
  }
+ button:active {
+  color: var(--blue-light);
+  background-color: var(--blue-dark)
+ }
 /* ------------ NavBar ------------*/
 .nav-top {
   background-color: var(--blue-purple-Dark);
