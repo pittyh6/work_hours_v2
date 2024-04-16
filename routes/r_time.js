@@ -93,16 +93,18 @@ router.post('/breakStart', async (req, res) => {
                     }catch(error){
                         console.error("Error update break start: ", error)
                     }
-                    
                 } else {
                     console.log("Founded break Start registered: ", foundBreak)
                 }
             })
         }
-
     })
 })
 
+//Break End
+router.post('/breakEnd',async (req, res) => {
+    console.log("break end punch entered")
+})
 
 
 module.exports = router
