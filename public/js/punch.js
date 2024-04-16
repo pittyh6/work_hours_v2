@@ -62,3 +62,22 @@ btn_break_end.addEventListener('click', async function (e) {
         console.error("Network error:", error.message)
     }
 })
+
+//clock out hour
+btn_clock_out.addEventListener('click', async function (e) {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({employeeId})
+    }
+    try{
+        const response = await fetch('/api/time/clockOut', options)
+        if(!response.ok){
+            throw new Error(`HTTP error! Status: ${response.status}`)
+        }
+    }catch(error){
+        console.error("Network error:", error.message)
+    }
+})

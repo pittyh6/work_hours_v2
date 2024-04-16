@@ -141,4 +141,9 @@ router.post('/breakEnd', async (req, res) => {
 })
 
 
+//clock out 
+router.post('/clockOut', async(req, res) => {
+    console.log("entered clock out")
+})
+
 module.exports = router
