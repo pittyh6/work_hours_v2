@@ -183,4 +183,11 @@ router.post('/clockOut', async (req, res) => {
     })
 })
 
+//history log send data
+router.post('/punch_log', async (req, res) => {
+    const {employeeId} = req.body
+    console.log("fetch punch_log history worked: ", employeeId)
+})
+
+
 module.exports = router
