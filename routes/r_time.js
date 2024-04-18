@@ -186,7 +186,19 @@ router.post('/clockOut', async (req, res) => {
 //history log send data
 router.post('/punch_log', async (req, res) => {
     const {employeeId} = req.body
-    console.log("fetch punch_log history worked: ", employeeId)
+    console.log("entered: ", employee)
+   /* Punch.find({employeeId: employeeId}).then(employee => {
+        console.log("fetch punch_log history worked: ", employee)
+        res.render('pages/punch_log', {employee})
+    })*/
+    try{
+        let name = ''
+        let workData = await Punch.find({employeeId: employeeId})
+        console.log('work data result: ', {workData})
+        //res.render('pages/punch_log', {workData})
+    }catch(error){
+        console.error("send work date error: ", error)
+    }
 })
 
 
