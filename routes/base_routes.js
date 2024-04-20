@@ -16,6 +16,10 @@ router.get('/punch_log', (req, res) => {
     res.render('pages/punch_log')
 })
 
+router.post('/punch_log', (req, res) => {
+    res.render('pages/punch_log')
+})
+
 //Define Login route
 router.get('/login', (req, res) => {
     res.render('pages/login')
