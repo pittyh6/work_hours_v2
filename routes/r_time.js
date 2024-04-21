@@ -16,12 +16,12 @@ const employee = new Employee({
 
 const punch = new Punch({
     employeeId: 100001,
-    day: '17/04/2024',
-    weekDay: 'Wednesday',
-    punchIn: '08:47',
+    day: '26/04/2024',
+    weekDay: 'Friday',
+    punchIn: '09:00',
     breakStart: '12:30',
     breakEnd: '13:00',
-    punchOut: '16:30',
+    punchOut: '17:00',
 })
 //punch.save()
 
