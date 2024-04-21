@@ -24,13 +24,14 @@ window.onload = async function () {
             const logEntry = document.createElement('div');
             logEntry.classList.add('log-entry');
             logEntry.innerHTML = `
+                <hr>
                 <p class="day">${data.weekDay} : ${data.day}</p>
                 <p class="clock-in">Clock In: ${data.punchIn}</p>
                 <p class="break-start">Break Start: ${data.breakStart}</p>
                 <p class="break-end">Break End: ${data.breakEnd}</p>
                 <p class="clock-out">Clock Out: ${data.punchOut}</p>
                 <p class="total-day">Total day: ${formattedTime}</p>
-                <hr>
+                
             `;
             punchLogContainer.appendChild(logEntry);
         });

@@ -197,6 +197,4 @@ router.get('/punch_log/:employeeId', async (req, res) => {
     }
 })
 
-
-
 module.exports = router
