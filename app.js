@@ -40,8 +40,6 @@ app.use('/api/time', timeRouter)
 app.use(express.static('public'))
 
 
-
-
 //Start Server
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {

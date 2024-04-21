@@ -109,7 +109,7 @@ router.post('/breakEnd', async (req, res) => {
     let hour = Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(todayDate)
     Punch.findOne({ employeeId: employeeId, day: day }).then(punch => {
         if (!punch) {
-            try{
+            try {
                 Punch.create({
                     employeeId: employeeId,
                     day: day,
@@ -120,9 +120,9 @@ router.post('/breakEnd', async (req, res) => {
                     punchOut: '',
                 })
                 console.log("Created break end register: ", punch)
-            }catch (error) {
+            } catch (error) {
                 console.error("Error to register break start: ", error)
-            } 
+            }
         } else {
             Punch.findOne({ employeeId: employeeId, day: day, breakEnd: { $ne: null } }).then(foundBreak => {
                 if (foundBreak.breakEnd == '' && foundBreak.punchOut == '') {
@@ -164,18 +164,18 @@ router.post('/clockOut', async (req, res) => {
                 punchOut: hour,
             })
             console.log("Clock Out created with success: ")
-        }else{
-            Punch.findOne({employeeId: employeeId, day: day, punchOut: {$ne: null}}).then(foundClockOut => {
-                try{
-                    if(foundClockOut.punchOut == ''){
+        } else {
+            Punch.findOne({ employeeId: employeeId, day: day, punchOut: { $ne: null } }).then(foundClockOut => {
+                try {
+                    if (foundClockOut.punchOut == '') {
                         foundClockOut.punchOut = hour
                         foundClockOut.save().then(saveClockOut => {
                             console.log('Clock Out Updated with success. ', saveClockOut)
                         })
-                    }else{
+                    } else {
                         console.error("Clock Out Already exists: ", foundClockOut)
                     }
-                }catch(error){
+                } catch (error) {
                     console.error("Error update Clock Out: ", error)
                 }
             })
@@ -184,7 +184,19 @@ router.post('/clockOut', async (req, res) => {
 })
 
 
-//punch_log
+//punch_log 
+router.get('/punch_log/:employeeId', async (req, res) => {
+    const employeeId = req.params.employeeId
+    try {
+        const workData = await Punch.find({ employeeId: employeeId })
+        //send all data
+        res.json(workData)
+    } catch (Error) {
+        console.error(Error)
+        res.status(500).send("Internal server error fetching work data")
+    }
+})
+
 
 
 module.exports = router
