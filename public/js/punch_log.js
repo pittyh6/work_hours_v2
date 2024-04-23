@@ -31,7 +31,6 @@ window.onload = async function () {
                 <p class="break-end">Break End: ${data.breakEnd}</p>
                 <p class="clock-out">Clock Out: ${data.punchOut}</p>
                 <p class="total-day">Total day: ${formattedTime}</p>
-                
             `;
             punchLogContainer.appendChild(logEntry);
         });
