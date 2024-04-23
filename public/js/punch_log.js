@@ -39,9 +39,14 @@ window.onload = async function () {
 };
 
 function countPunchLog(){
+    const pagination = document.getElementById('pagination')
     const logEntry = document.querySelectorAll('.log-entry');
     const itemPerPage = 7
     const numberPages = Math.ceil(logEntry.length / itemPerPage)
     console.log('log entry count: ', numberPages)
 
+    const paginationNumber = document.createElement('p')
+    paginationNumber.classList.add('pag-number')
+    paginationNumber.innerHTML = `${numberPages}`
+    pagination.appendChild(paginationNumber)
 }
