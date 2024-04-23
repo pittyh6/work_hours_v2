@@ -39,6 +39,9 @@ window.onload = async function () {
 };
 
 function countPunchLog(){
-    const logEntryP = document.querySelectorAll('.log-entry');
-    console.log('log entry count: ', logEntryP)
+    const logEntry = document.querySelectorAll('.log-entry');
+    const itemPerPage = 7
+    const numberPages = Math.ceil(logEntry.length / itemPerPage)
+    console.log('log entry count: ', numberPages)
+
 }
