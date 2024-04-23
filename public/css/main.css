@@ -225,4 +225,11 @@ main {
   font-size: 1.3rem;
   font-weight: var(--font-weight-header);
 }
+.pagination-container{
+  text-align: center;
+}
+.pag-number{
+  padding: 0 5px;
+  margin: 0 5px;
+}
 /* ------------ ------------ ------------*/

@@ -45,8 +45,12 @@ function countPunchLog(){
     const numberPages = Math.ceil(logEntry.length / itemPerPage)
     console.log('log entry count: ', numberPages)
 
-    const paginationNumber = document.createElement('p')
-    paginationNumber.classList.add('pag-number')
-    paginationNumber.innerHTML = `${numberPages}`
-    pagination.appendChild(paginationNumber)
+    //create the pages number at the botton
+    for(let i = 1; i<= numberPages; i++){
+        console.log('i: ', i)
+        const paginationNumber = document.createElement('button')
+        paginationNumber.classList.add('pag-number')
+        paginationNumber.innerHTML = `${i}`
+        pagination.appendChild(paginationNumber)
+    }
 }
