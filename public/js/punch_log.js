@@ -35,4 +35,10 @@ window.onload = async function () {
             punchLogContainer.appendChild(logEntry);
         });
     }
+    countPunchLog()
 };
+
+function countPunchLog(){
+    const logEntryP = document.querySelectorAll('.log-entry');
+    console.log('log entry count: ', logEntryP)
+}
