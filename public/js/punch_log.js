@@ -1,3 +1,4 @@
+const itemPerPage = 7
 
 window.onload = async function () {
     if (window.location.href.indexOf('/punch_log') > -1) {
@@ -43,10 +44,10 @@ async function showData() {
     countPunchLog()
 }
 
+//check how many pages number is going to have. Get all data and divide by 7. If the result is float, it rounds to 1 up.
 function countPunchLog() {
     const pagination = document.getElementById('pagination')
     const logEntry = document.querySelectorAll('.log-entry');
-    const itemPerPage = 7
     const numberPages = Math.ceil(logEntry.length / itemPerPage)
     console.log('log entry count: ', numberPages)
 
@@ -59,10 +60,14 @@ function countPunchLog() {
         pagination.appendChild(paginationNumber)
     }
 }
+
+// get the page number clicked. 
 function getPageNumber() {
     document.addEventListener('click', function (event) {
         if (event.target.classList == 'pag-number') {
-            console.log('event.target contains pag-number clase: ', event.target)
+            let clickedPage = parseInt(event.target.innerHTML)
+            console.log('event.target contains pag-number clase: ', currPage)
+            
         } else {
             console.log("Does not contains class pag-number: ", event.target)
         }
