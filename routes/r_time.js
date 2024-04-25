@@ -188,7 +188,7 @@ router.post('/clockOut', async (req, res) => {
 router.get('/punch_log/:employeeId', async (req, res) => {
     const employeeId = req.params.employeeId
     try {
-        const workData = await Punch.find({ employeeId: employeeId })
+        const workData = await Punch.find({ employeeId: employeeId }).sort({"day":-1 })
         //send all data
         res.json(workData)
     } catch (Error) {

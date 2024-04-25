@@ -53,4 +53,8 @@ function countPunchLog(){
         paginationNumber.innerHTML = `${i}`
         pagination.appendChild(paginationNumber)
     }
+
+    //show the last 7 days
+    
+    
 }
