@@ -59,8 +59,6 @@ function countPunchLog(workData) {
             paginationNumber.innerHTML = `${i}`
             pagination.appendChild(paginationNumber)
         }
-    }else{
-        console.log("pagination already exists: ", document.querySelectorAll('.pag-number').length)
     }
 }
 
@@ -74,8 +72,6 @@ function getPageNumber() {
             let clickedPage = parseInt(event.target.innerHTML)
             const startElPage = ((clickedPage * 7) - 7)
             showData(clickedPage, startElPage)
-        } else {
-            console.log("Does not contains class pag-number: ", event.target)
-        }
+        } 
     })
 }
