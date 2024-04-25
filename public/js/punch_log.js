@@ -3,14 +3,12 @@ const itemPerPage = 7
 
 window.onload = async function () {
     if (window.location.href.indexOf('/punch_log') > -1) {
-       showData(1)
-       
         getPageNumber()
     }
 };
 //showData(1)
 //getPageNumber()
-async function showData(clickedPage) {
+async function showData(clickedPage, startElPage) {
     // Send the employeeId to the server
     const response = await fetch(`/api/time/punch_log/${employeeId}`);
     const workData = await response.json();
@@ -19,7 +17,7 @@ async function showData(clickedPage) {
     const punchLogContainer = document.getElementById('punchLogContainer');
     punchLogContainer.innerHTML = ''; // Clear previous content
     //workData.forEach(data => {
-    for (let i = 0; i < itemPerPage * clickedPage; i++) {
+    for (let i = startElPage; i < itemPerPage * clickedPage; i++) {
         //total calc
         const punchInTime = new Date(`2024-02-03 ${workData[i].punchIn}`);
         const punchOutTime = new Date(`2024-02-03 ${workData[i].punchOut}`);
@@ -67,11 +65,15 @@ function countPunchLog(workData) {
 
 // get the page number clicked. 
 function getPageNumber() {
+    showData(1,0)
     document.addEventListener('click', function (event) {
+        const logEntry = document.querySelectorAll('.log-entry');
+        const punchContainer = document.querySelector('#punchLogContainer');
         if (event.target.classList == 'pag-number') {
             let clickedPage = parseInt(event.target.innerHTML)
-            console.log('clicked page number: ', clickedPage)
-            showData(clickedPage)
+            const startElPage = ((clickedPage * 7) - 7)
+            console.log('clicked page number: ', startElPage)
+            showData(clickedPage, startElPage)
         } else {
             console.log("Does not contains class pag-number: ", event.target)
         }
