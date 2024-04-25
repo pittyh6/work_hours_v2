@@ -1,4 +1,4 @@
-const itemPerPage = 7
+const itemPerPage = 5
 
 
 window.onload = async function () {
@@ -70,7 +70,7 @@ function getPageNumber() {
         const punchContainer = document.querySelector('#punchLogContainer');
         if (event.target.classList == 'pag-number') {
             let clickedPage = parseInt(event.target.innerHTML)
-            const startElPage = ((clickedPage * 7) - 7)
+            const startElPage = ((clickedPage * 5) - 5)
             showData(clickedPage, startElPage)
         } 
     })
