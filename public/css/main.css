@@ -227,6 +227,7 @@ main {
 }
 .pagination-container{
   text-align: center;
+  margin: 45px 0;
 }
 .pag-number{
   padding: 0 5px;
