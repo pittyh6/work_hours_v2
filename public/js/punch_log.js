@@ -3,11 +3,11 @@ const itemPerPage = 7
 
 window.onload = async function () {
     if (window.location.href.indexOf('/punch_log') > -1) {
-        getPageNumber()
+        //showData(1,0)
     }
 };
 //showData(1)
-//getPageNumber()
+getPageNumber()
 async function showData(clickedPage, startElPage) {
     // Send the employeeId to the server
     const response = await fetch(`/api/time/punch_log/${employeeId}`);
@@ -47,6 +47,7 @@ async function showData(clickedPage, startElPage) {
 
 //check how many pages number is going to have. Get all data and divide by 7. If the result is float, it rounds to 1 up.
 function countPunchLog(workData) {
+    console.log("totalWorkData: " + workData.length)
     const pagination = document.getElementById('pagination')
     const logEntry = document.querySelectorAll('.log-entry');
     const totalWorkData = workData.length
@@ -54,12 +55,16 @@ function countPunchLog(workData) {
     console.log('log entry count: ', numberPages)
 
     //create the pages number at the botton
-    for (let i = 1; i <= numberPages; i++) {
-        console.log('i: ', i)
-        const paginationNumber = document.createElement('button')
-        paginationNumber.classList.add('pag-number')
-        paginationNumber.innerHTML = `${i}`
-        pagination.appendChild(paginationNumber)
+    if(document.querySelectorAll('.pag-number').length <= 0){
+        for (let i = 1; i <= numberPages; i++) {
+            console.log('i: ', i)
+            const paginationNumber = document.createElement('button')
+            paginationNumber.classList.add('pag-number')
+            paginationNumber.innerHTML = `${i}`
+            pagination.appendChild(paginationNumber)
+        }
+    }else{
+        console.log("pagination already exists: ", document.querySelectorAll('.pag-number').length)
     }
 }
 
