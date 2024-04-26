@@ -6,26 +6,48 @@ const employeeName = document.querySelector('.staff-info-name').innerHTML
 
 
 
-btn_cancel.addEventListener('click', () =>{
+btn_cancel.addEventListener('click', () => {
     console.log("btn cancel was clicked")
     text_post.value = ''
 })
 
-btn_post.addEventListener('click', async function() {
+btn_post.addEventListener('click', async function () {
     const post = document.querySelector('.text-post').value
     console.log("btn post was clicked: ", post)
     const options = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ employeeId, employeeName, post})
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ employeeId, employeeName, post })
     }
-    try{
+    try {
         const response = await fetch('/api/time/post', options)
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`)
         }
-    }catch (error) {
+    } catch (error) {
         console.error("Network error:", error.message);
     }
 
 })
+
+window.onload = async function () {
+    if (window.location.href.indexOf('/post') > -1) {
+        getPosts()
+    }
+}
+
+async function getPosts() {
+    const response = await fetch('/api/time/post')
+    const postData = await response.json()
+    const postContainer = document.querySelector('#posts')
+    console.log(postData)
+    postData.forEach(posts => {
+        const postDiv = document.createElement('div')
+        postDiv.classList.add('post-block')
+        postDiv.innerHTML = `
+            <p class='post-data-text'>${posts.post}</p>
+            <p class='post-data-employeeName'>${employeeName}</p>
+        `
+        postContainer.appendChild(postDiv)
+    })
+}

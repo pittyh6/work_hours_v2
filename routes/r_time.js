@@ -232,7 +232,16 @@ router.post('/post', async (req, res) => {
 
 })
 
-
+//return all posts
+router.get('/post', async (req, res) => {
+    const employeeId = req.params.employeeId
+    try{
+        const postData = await Post.find()
+        res.json(postData)
+    }catch (error) {
+        res.status(500).send("Internal server error fetching Posts data")
+    }
+})
 
 /* ---------------------- --------- ---------------------- */
 
