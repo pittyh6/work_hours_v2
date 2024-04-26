@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../partials/head') %>
-    <title>Posts</title>
+        <title>Posts</title>
 </head>
+
 <body>
     <%- include('../partials/header') %>
-    
-    <h1>Posts</h1>
+        <main class="container">
+            <h1>Posts</h1>
+            <div class="content">
+                <div class="post-write" id="post-write">
+                    <textarea id="text-post" class="text-post" name="text-post"></textarea>
+                    <button class="btn-cancel" id="btn-cancel">Cancel</button>
+                    <button class="btn-post" id="btn-post">Post</button>
+                </div>
+                <div class="posts" id="posts"></div>
+            </div>
+        </main>
 
-    <!-- FOOTER -->
-    <%- include('../partials/footer') %>
+
+        <!-- FOOTER -->
+        <%- include('../partials/footer') %>
 </body>
+
 </html>
