@@ -217,19 +217,23 @@ router.post('/post', async (req, res) => {
     console.log("fetched post employeeName: ", employeeName)
     console.log("fetched post text: ", post)
 
-
     try {
-        const createPost = new Post({
-            employeeId: employeeId,
-            employeeName: employeeName,
-            post: post
-        })
-        createPost.save()
+        if(post != '') {
+            const createPost = new Post({
+                employeeId: employeeId,
+                employeeName: employeeName,
+                post: post
+            })
+            createPost.save()
+        }
     } catch (error) {
         console.error("Error save post: ", error)
     }
 
 })
+
+
+
 /* ---------------------- --------- ---------------------- */
 
 module.exports = router
