@@ -25,6 +25,8 @@ const punch = new Punch({
 })
 //punch.save()
 
+/* ---------------------- Punch Hours ---------------------- */
+
 //PunchIn hour
 router.post('/punchIn', async (req, res) => {
     const { employeeId } = req.body
@@ -182,8 +184,9 @@ router.post('/clockOut', async (req, res) => {
         }
     })
 })
+/* ---------------------- --------- ---------------------- */
 
-
+/* ---------------------- Punch LOG ---------------------- */
 //punch_log 
 router.get('/punch_log/:employeeId', async (req, res) => {
     const employeeId = req.params.employeeId
@@ -196,5 +199,17 @@ router.get('/punch_log/:employeeId', async (req, res) => {
         res.status(500).send("Internal server error fetching work data")
     }
 })
+/* ---------------------- --------- ---------------------- */
+
+/* ------------------------ Post ------------------------ */
+router.post('/post', async (req, res) => {
+    const {employeeId} = req.body
+    const {employeeName} = req.body
+    console.log("fetched post employeeId: ", employeeId)
+    console.log("fetched post employeeName: ", employeeName)
+
+    
+})
+/* ---------------------- --------- ---------------------- */
 
 module.exports = router
