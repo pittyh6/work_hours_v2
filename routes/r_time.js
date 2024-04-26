@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 
 const { Employee } = require('../models/m_time')
 const { Punch } = require('../models/m_time')
+const { Post } = require('../models/m_time')
 
 const employee = new Employee({
     employeeId: 100002,
@@ -24,6 +25,12 @@ const punch = new Punch({
     punchOut: '17:00',
 })
 //punch.save()
+const post = new Post({
+    employeeId: 100003,
+    employeeName: 'Elisabeth',
+    post: "It is with all the happiness in the world I came to tell you all. Today is my last day."
+})
+//post.save()
 
 /* ---------------------- Punch Hours ---------------------- */
 
@@ -191,7 +198,7 @@ router.post('/clockOut', async (req, res) => {
 router.get('/punch_log/:employeeId', async (req, res) => {
     const employeeId = req.params.employeeId
     try {
-        const workData = await Punch.find({ employeeId: employeeId }).sort({"day":-1 })
+        const workData = await Punch.find({ employeeId: employeeId }).sort({ "day": -1 })
         //send all data
         res.json(workData)
     } catch (Error) {
@@ -203,12 +210,25 @@ router.get('/punch_log/:employeeId', async (req, res) => {
 
 /* ------------------------ Post ------------------------ */
 router.post('/post', async (req, res) => {
-    const {employeeId} = req.body
-    const {employeeName} = req.body
+    const { employeeId } = req.body
+    const { employeeName } = req.body
+    const { post } = req.body
     console.log("fetched post employeeId: ", employeeId)
     console.log("fetched post employeeName: ", employeeName)
+    console.log("fetched post text: ", post)
 
-    
+
+    try {
+        const createPost = new Post({
+            employeeId: employeeId,
+            employeeName: employeeName,
+            post: post
+        })
+        createPost.save()
+    } catch (error) {
+        console.error("Error save post: ", error)
+    }
+
 })
 /* ---------------------- --------- ---------------------- */
 

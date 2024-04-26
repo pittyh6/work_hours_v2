@@ -4,17 +4,20 @@ const text_post = document.getElementById('text-post')
 //const employeeId = document.querySelector('.staff-info-id').innerHTML
 const employeeName = document.querySelector('.staff-info-name').innerHTML
 
+
+
 btn_cancel.addEventListener('click', () =>{
     console.log("btn cancel was clicked")
     text_post.value = ''
 })
 
 btn_post.addEventListener('click', async function() {
-    console.log("btn post was clicked: ", employeeName)
+    const post = document.querySelector('.text-post').value
+    console.log("btn post was clicked: ", post)
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ employeeId, employeeName })
+        body: JSON.stringify({ employeeId, employeeName, post})
     }
     try{
         const response = await fetch('/api/time/post', options)
