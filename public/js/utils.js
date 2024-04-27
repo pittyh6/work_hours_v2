@@ -2,8 +2,6 @@ function pagination(pageData, qtdPerPage) {
     const qtdPost = qtdPerPage
     const pageQtd = Math.ceil(pageData.length / qtdPost)
     const pagination = document.getElementById('pagination')
-    console.log("postPerPage: ", pageData.length)
-    console.log("postPerPage pagination: ", pageQtd)
 
     if (document.querySelectorAll('.pag-number').length <= 0) {
         for (let i = 1; i <= pageQtd; i++) {

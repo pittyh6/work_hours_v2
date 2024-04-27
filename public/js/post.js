@@ -7,13 +7,11 @@ const employeeName = document.querySelector('.staff-info-name').innerHTML
 
 
 btn_cancel.addEventListener('click', () => {
-    console.log("btn cancel was clicked")
     text_post.value = ''
 })
 
 btn_post.addEventListener('click', async function () {
     const post = document.querySelector('.text-post').value
-    console.log("btn post was clicked: ", post)
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -40,13 +38,11 @@ window.onload = async function () {
 async function getPosts(start, clickedPage) {
     const response = await fetch('/api/time/post')
     const postData = await response.json()
-    console.log(postData)
     pagination(postData, 5) //comes from utils.js
     const postContainer = document.querySelector('#posts')
     postContainer.innerHTML = '' //clear content
     //postData.forEach(posts => {
     for (let i = start; i <= start + 4; i++) {
-        console.log("entrouuuuuu")
         const postDiv = document.createElement('div')
         postDiv.classList.add('post-block')
         postDiv.classList.add('phrase')
@@ -55,20 +51,17 @@ async function getPosts(start, clickedPage) {
                     <p class='post-data-employeeName'>${postData[i].employeeName}</p>
                 `
         postContainer.appendChild(postDiv)
+        window.scrollTo(0,0)
     }
 }
 function getPageClicked(){
     getPosts(0, 1)
     document.addEventListener('click', (e) => {
-        console.log("click event: ", e.target)
         if (e.target.classList == 'pag-number') {
-            console.log("class contains pag-number: ", e.target.innerHTML)
             let clickedPage = parseInt(e.target.innerHTML)
             const start = (clickedPage * 5) - 5
             getPosts(start, clickedPage)
-        } else {
-            console.log("it does not contain pag-number: ", e.target.innerHTML)
-        }
+        } 
     })
 }
 
