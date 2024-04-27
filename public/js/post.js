@@ -5,13 +5,17 @@ const text_post = document.getElementById('text-post')
 const employeeName = document.querySelector('.staff-info-name').innerHTML
 
 
-
-btn_cancel.addEventListener('click', () => {
+function cleanText(){
     text_post.value = ''
+    location.reload();
+}
+btn_cancel.addEventListener('click', () => {
+    cleanText()
 })
 
 btn_post.addEventListener('click', async function () {
     const post = document.querySelector('.text-post').value
+    cleanText()
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -25,13 +29,12 @@ btn_post.addEventListener('click', async function () {
     } catch (error) {
         console.error("Network error:", error.message);
     }
-
+    cleanText()
 })
 
 window.onload = async function () {
     if (window.location.href.indexOf('/post') > -1) {
         getPageClicked()
-        
     }
 }
 
@@ -64,37 +67,3 @@ function getPageClicked(){
         } 
     })
 }
-
-/*async function getPosts(start, clickedPage) {
-    const response = await fetch('/api/time/post')
-    const postData = await response.json()
-    const postContainer = document.querySelector('#posts')
-    console.log(postData)
-    pagination(postData, 5) //comes from utils.js
-    postData.forEach(posts => {
-        console.log("entrouuuuuu")
-        const postDiv = document.createElement('div')
-        postDiv.classList.add('post-block')
-        postDiv.classList.add('phrase')
-        postDiv.innerHTML = `
-            <p class='post-data-text'>${posts.post}</p>
-            <p class='post-data-employeeName'>${posts.employeeName}</p>
-        `
-        postContainer.appendChild(postDiv)
-    })
-}*/
-/*function paginationPost(postData){
-    const qtdPost = 5
-    const pageQtd = Math.ceil(postData.length / qtdPost)
-    const pagination = document.getElementById('pagination')
-    console.log("postPerPage: ", postData.length)
-    console.log("postPerPage pagination: ", pageQtd)
-    
-    for(let i = 1; i <= pageQtd; i++){
-        const pagNumber = document.createElement('button')
-        pagNumber.classList.add('pag-number')
-        pagNumber.innerHTML = `${i}`
-        pagination.appendChild(pagNumber)
-    }
-}*/
-
