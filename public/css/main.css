@@ -254,4 +254,10 @@ main {
   padding:2px 25px;
   margin: 10px 10px 10px 2px;
 }
+.post-block{
+  height: fit-content !important;
+}
+.post-data-employeeName{
+  font-size: 1rem;
+}
 /* ------------ ------------ ------------*/

@@ -236,7 +236,7 @@ router.post('/post', async (req, res) => {
 router.get('/post', async (req, res) => {
     const employeeId = req.params.employeeId
     try{
-        const postData = await Post.find()
+        const postData = await Post.find().sort({"_id": -1})
         res.json(postData)
     }catch (error) {
         res.status(500).send("Internal server error fetching Posts data")

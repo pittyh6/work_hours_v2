@@ -44,9 +44,10 @@ async function getPosts() {
     postData.forEach(posts => {
         const postDiv = document.createElement('div')
         postDiv.classList.add('post-block')
+        postDiv.classList.add('phrase')
         postDiv.innerHTML = `
             <p class='post-data-text'>${posts.post}</p>
-            <p class='post-data-employeeName'>${employeeName}</p>
+            <p class='post-data-employeeName'>${posts.employeeName}</p>
         `
         postContainer.appendChild(postDiv)
     })
