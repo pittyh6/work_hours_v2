@@ -41,7 +41,7 @@ async function getPosts() {
     const postData = await response.json()
     const postContainer = document.querySelector('#posts')
     console.log(postData)
-    paginationPost(postData)
+    pagination(postData, 5) //comes from utils.js
     postData.forEach(posts => {
         const postDiv = document.createElement('div')
         postDiv.classList.add('post-block')
@@ -53,7 +53,7 @@ async function getPosts() {
         postContainer.appendChild(postDiv)
     })
 }
-function paginationPost(postData){
+/*function paginationPost(postData){
     const qtdPost = 5
     const pageQtd = Math.ceil(postData.length / qtdPost)
     const pagination = document.getElementById('pagination')
@@ -66,4 +66,4 @@ function paginationPost(postData){
         pagNumber.innerHTML = `${i}`
         pagination.appendChild(pagNumber)
     }
-}
+}*/
