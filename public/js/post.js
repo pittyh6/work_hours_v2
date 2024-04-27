@@ -29,32 +29,22 @@ btn_post.addEventListener('click', async function () {
     }
 
 })
-window.addEventListener('click', (e) => {
-    console.log("click event: ", e.target)
-    if (e.target.classList.contains('pag-number')) {
-        console.log("class contains pag-number: ", e.target.innerHTML)
-        const clickedPage = e.target.innerHTML
-        const start = (clickedPage * 5) - 5
-        getPosts(start, clickedPage)
-    } else {
-        console.log("it does not contain pag-number: ", e.target.innerHTML)
-    }
-})
 
 window.onload = async function () {
     if (window.location.href.indexOf('/post') > -1) {
-        getPosts(0, 1)
+        getPageClicked()
+        
     }
 }
 
 async function getPosts(start, clickedPage) {
     const response = await fetch('/api/time/post')
     const postData = await response.json()
-    const postContainer = document.querySelector('#posts')
     console.log(postData)
     pagination(postData, 5) //comes from utils.js
+    const postContainer = document.querySelector('#posts')
+    postContainer.innerHTML = '' //clear content
     //postData.forEach(posts => {
-
     for (let i = start; i <= start + 4; i++) {
         console.log("entrouuuuuu")
         const postDiv = document.createElement('div')
@@ -66,9 +56,22 @@ async function getPosts(start, clickedPage) {
                 `
         postContainer.appendChild(postDiv)
     }
-
-
 }
+function getPageClicked(){
+    getPosts(0, 1)
+    document.addEventListener('click', (e) => {
+        console.log("click event: ", e.target)
+        if (e.target.classList == 'pag-number') {
+            console.log("class contains pag-number: ", e.target.innerHTML)
+            let clickedPage = parseInt(e.target.innerHTML)
+            const start = (clickedPage * 5) - 5
+            getPosts(start, clickedPage)
+        } else {
+            console.log("it does not contain pag-number: ", e.target.innerHTML)
+        }
+    })
+}
+
 /*async function getPosts(start, clickedPage) {
     const response = await fetch('/api/time/post')
     const postData = await response.json()
