@@ -29,20 +29,54 @@ btn_post.addEventListener('click', async function () {
     }
 
 })
+window.addEventListener('click', (e) => {
+    console.log("click event: ", e.target)
+    if (e.target.classList.contains('pag-number')) {
+        console.log("class contains pag-number: ", e.target.innerHTML)
+        const clickedPage = e.target.innerHTML
+        const start = (clickedPage * 5) - 5
+        getPosts(start, clickedPage)
+    } else {
+        console.log("it does not contain pag-number: ", e.target.innerHTML)
+    }
+})
 
 window.onload = async function () {
     if (window.location.href.indexOf('/post') > -1) {
-        getPosts()
+        getPosts(0, 1)
     }
 }
 
-async function getPosts() {
+async function getPosts(start, clickedPage) {
+    const response = await fetch('/api/time/post')
+    const postData = await response.json()
+    const postContainer = document.querySelector('#posts')
+    console.log(postData)
+    pagination(postData, 5) //comes from utils.js
+    //postData.forEach(posts => {
+
+    for (let i = start; i <= start + 4; i++) {
+        console.log("entrouuuuuu")
+        const postDiv = document.createElement('div')
+        postDiv.classList.add('post-block')
+        postDiv.classList.add('phrase')
+        postDiv.innerHTML = `
+                    <p class='post-data-text'>${postData[i].post}</p>
+                    <p class='post-data-employeeName'>${postData[i].employeeName}</p>
+                `
+        postContainer.appendChild(postDiv)
+    }
+
+
+}
+/*async function getPosts(start, clickedPage) {
     const response = await fetch('/api/time/post')
     const postData = await response.json()
     const postContainer = document.querySelector('#posts')
     console.log(postData)
     pagination(postData, 5) //comes from utils.js
     postData.forEach(posts => {
+        console.log("entrouuuuuu")
         const postDiv = document.createElement('div')
         postDiv.classList.add('post-block')
         postDiv.classList.add('phrase')
@@ -52,7 +86,7 @@ async function getPosts() {
         `
         postContainer.appendChild(postDiv)
     })
-}
+}*/
 /*function paginationPost(postData){
     const qtdPost = 5
     const pageQtd = Math.ceil(postData.length / qtdPost)
@@ -67,3 +101,4 @@ async function getPosts() {
         pagination.appendChild(pagNumber)
     }
 }*/
+
