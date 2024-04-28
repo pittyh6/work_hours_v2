@@ -22,10 +22,10 @@ p {
   color: var(--white);
   font-family: var(--font-text);
 }
-p{
-  padding: 3px 12px
+p {
+  padding: 3px 12px;
 }
-hr{
+hr {
   border: 0;
   border-bottom: 10px solid var(--blue-light);
   border-color: var(--blue-light);
@@ -33,14 +33,15 @@ hr{
   border-radius: 63px;
   margin: 15px 0;
 }
-button{
+button,
+.btns {
   background-color: var(--blue-light);
   border: none;
   border-radius: 20px;
   color: var(--blue-dark);
   font-family: var(--font-text);
   font-size: 1rem !important;
-  font-weight: var(--font-weight-header)
+  font-weight: var(--font-weight-header);
 }
 body {
   background-color: var(--purple-plain) !important;
@@ -52,15 +53,15 @@ body {
   display: none;
 }
 /* ------------ ------------ ------------*/
- /*------------ Reusable  ------------*/
- .slide-img,
- .phrase {
-   border-radius: 20px;
- }
- button:active {
+/*------------ Reusable  ------------*/
+.slide-img,
+.phrase {
+  border-radius: 20px;
+}
+button:active {
   color: var(--blue-light);
-  background-color: var(--blue-dark)
- }
+  background-color: var(--blue-dark);
+}
 /* ------------ NavBar ------------*/
 .nav-top {
   background-color: var(--blue-purple-Dark);
@@ -79,7 +80,7 @@ body {
   width: 35px;
   display: block;
 }
-.employee-info-form{
+.employee-info-form {
   display: flex;
   justify-content: space-between;
 }
@@ -91,7 +92,7 @@ body {
 .staff-info > * {
   padding: 15px 10px 0 0;
 }
-.staff-info-id{
+.staff-info-id {
   padding: 0 15px;
 }
 .nav-bottom {
@@ -128,11 +129,11 @@ main {
 /* ------------ HOME Page ------------*/
 /*---- Carousel ----*/
 
-.carousel{
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 20vh;
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 20vh;
 }
 .carousel-item {
   position: absolute;
@@ -143,8 +144,8 @@ main {
   opacity: 0;
   transition: opacity 0.5s;
 }
-.carousel-item.active{
-    opacity: 1;
+.carousel-item.active {
+  opacity: 1;
 }
 .carousel-text {
   font-family: var(--font-header);
@@ -160,57 +161,56 @@ main {
   object-fit: cover;
 }
 .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .prev-btn {
-    left: 10px;
+  left: 10px;
 }
 .next-btn {
-    right: 10px;
+  right: 10px;
 }
 /*------------------*/
 /*---- Phrase ----*/
-.phrase{
-    width: 100%;
-    height: 20vh;
-    background-color: var(--blue-purple-box);
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+.phrase {
+  width: 100%;
+  height: 20vh;
+  background-color: var(--blue-purple-box);
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
-.phrase>p{
-    padding: 10px 15px;
+.phrase > p {
+  padding: 10px 15px;
 }
-.author{
-    color: var(--blue-dark);
-    font-weight: var(--font-weight-header);
+.author {
+  color: var(--blue-dark);
+  font-weight: var(--font-weight-header);
 }
 /*------------------*/
 /* ------------ ------------ ------------*/
 
-
 /* ---------------- PUNCH PAGE ---------------*/
-.punch_clock{
+.punch_clock {
   margin: 30px 10px;
 }
-.clock_icon{
+.clock_icon {
   width: 60px;
   position: absolute;
   z-index: 1;
   padding: 10px;
 }
-.clock_btn{
+.clock_btn {
   height: 60px;
   width: 100%;
   position: relative;
@@ -218,28 +218,27 @@ main {
 }
 /* ------------ ------------ ------------*/
 
-
 /* ---------------- History Log PAGE ---------------*/
-.total-week{
+.total-week {
   text-align: center;
   font-size: 1.3rem;
   font-weight: var(--font-weight-header);
 }
-.pagination-container{
+.pagination-container {
   text-align: center;
   margin: 45px 0;
 }
-.pag-number{
+.pag-number {
   padding: 0 5px;
   margin: 0 5px;
 }
 /* ------------ ------------ ------------*/
 
 /* ---------------- Post PAGE ---------------*/
-.content{
-  margin:10px;
+.content {
+  margin: 10px;
 }
-.text-post{
+.text-post {
   background-color: var(--blue-light);
   border-radius: 20px;
   color: var(--blue-dark);
@@ -249,15 +248,33 @@ main {
   width: 100%;
 }
 .btn-cancel,
-.btn-post{
+.btn-post {
   font-size: 1.5rem;
-  padding:2px 25px;
+  padding: 2px 25px;
   margin: 10px 10px 10px 2px;
 }
-.post-block{
+.post-block {
   height: fit-content !important;
 }
-.post-data-employeeName{
+.post-data-employeeName {
   font-size: 1rem;
 }
+/* ------------ ------------ ------------*/
+
+/* ---------------- Login PAGE ---------------*/
+input {
+  height: 5vh;
+  width: 100%;
+  margin: 10px 0;
+  text-indent: 10px;
+}
+.btns-login{
+  text-align: center;
+}
+.btn-login{
+  margin: 30px 0;
+  text-indent: 0;
+  width: 35%;
+}
+
 /* ------------ ------------ ------------*/
