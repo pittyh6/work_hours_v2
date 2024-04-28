@@ -263,18 +263,24 @@ main {
 
 /* ---------------- Login PAGE ---------------*/
 input {
+  border: none;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  text-indent: 20px;
   height: 5vh;
   width: 100%;
-  margin: 10px 0;
-  text-indent: 10px;
 }
-.btns-login{
+.btns-login {
   text-align: center;
+  display: flex;
+  justify-content: space-between;
 }
-.btn-login{
+
+.btn-login {
   margin: 30px 0;
   text-indent: 0;
-  width: 35%;
+  width: 45%;
 }
 
 /* ------------ ------------ ------------*/
