@@ -262,6 +262,9 @@ main {
 /* ------------ ------------ ------------*/
 
 /* ---------------- Login PAGE ---------------*/
+.changePassword{
+  color: var(--yellow);
+}
 input {
   border: none;
   border-radius: 20px;
