@@ -9,6 +9,6 @@ btn_login_cancel.addEventListener('click', function () {
 })
 
 btn_login_submit.addEventListener('click', function () {
-    let userId  = document.getElementById('userIdLogin').value
+    let userId  = document.getElementById('userIdLogin')
     alert('btn_login_submit clicked: ', userId)
 })
