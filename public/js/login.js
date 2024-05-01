@@ -8,7 +8,10 @@ btn_login_cancel.addEventListener('click', function () {
     input_password.value = ''
 })
 
-btn_login_submit.addEventListener('click', function () {
-    let userId  = document.getElementById('userIdLogin')
-    alert('btn_login_submit clicked: ', userId)
+btn_login_submit.addEventListener('click', function (e) {
+    e.preventDefault()
+    const userId  = input_userId.value
+    const password = input_password.value
+    console.log('btn_login_submit clicked: ', userId)
+    console.log('btn_login_submit clicked: ', password)
 })
