@@ -8,10 +8,11 @@ const { Punch } = require('../models/m_time')
 const { Post } = require('../models/m_time')
 
 const employee = new Employee({
-    employeeId: 100002,
-    employeeFirstName: 'Elisabeth',
+    employeeId: 100004,
+    employeeFirstName: 'Livira',
     employeeLastName: 'Donna',
     employeePassword: 'temp',
+    employeeType: "Staff"
 })
 //employee.save()
 
@@ -246,11 +247,11 @@ router.get('/post', async (req, res) => {
 /* ---------------------- --------- ---------------------- */
 
 /* ------------------------ Login ------------------------ */
-router.post('/login', async (req, res) => {
+/*router.post('/login', async (req, res) => {
     const { userId } = req.body
     console.log("fetched login router: ", userId)
 
-})
+})*/
 /* ---------------------- --------- ---------------------- */
 
 

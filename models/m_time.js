@@ -7,6 +7,7 @@ const employeeSchema = new Schema({
     employeeFirstName: {type: String,require: true},
     employeeLastName: {type: String,require: true},
     employeePassword: {type:String, require: true},
+    employeeType: {type:String, require: true, enum: ["Staff", "Manager"]},
 });
 // punch hours table schema
 const punchSchema = new mongoose.Schema({
