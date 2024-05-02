@@ -6,6 +6,8 @@ const Employee = require('./models/m_time').Employee;
 const timeRouter = require('./routes/r_time')
 const app = express()
 
+
+
 //get the id and first name employee to send to header.ejs included in all pages
 app.use( async function (req, res, next) {
     try{
@@ -35,9 +37,18 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended:true}))
 app.use('/api/time', timeRouter)
 
-
 //Server static files
 app.use(express.static('public'))
+
+
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+    console.log('Received login request:', username, password);
+    // Handle the login logic here
+    res.send('Login successful!');
+})
+
+
 
 
 //Start Server

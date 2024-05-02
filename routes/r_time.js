@@ -245,4 +245,13 @@ router.get('/post', async (req, res) => {
 
 /* ---------------------- --------- ---------------------- */
 
+/* ------------------------ Login ------------------------ */
+router.post('/login', async (req, res) => {
+    const { userId } = req.body
+    console.log("fetched login router: ", userId)
+
+})
+/* ---------------------- --------- ---------------------- */
+
+
 module.exports = router
