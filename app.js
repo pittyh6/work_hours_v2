@@ -45,7 +45,7 @@ app.post('/login', (req, res) => {
     const { username, password } = req.body;
     console.log('Received login request:', username, password);
     // Handle the login logic here
-    res.send('Login successful!');
+    res.render('pages/login');
 })
 
 
