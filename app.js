@@ -48,7 +48,7 @@ app.post('/login', (req, res) => {
         if (found) {
             console.log("employee founded: ", found)
             res.render('pages/index');
-        }else{
+        } else {
             console.log("Employee Number or Password Wrong!!!")
             res.render('pages/login');
         }
