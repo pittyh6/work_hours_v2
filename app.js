@@ -47,14 +47,16 @@ app.post('/login', (req, res) => {
     const employeeData = Employee.findOne({ employeeId: username, employeePassword: password }).then((found) => {
         if (found) {
             console.log("employee founded: ", found)
+            res.render('pages/index');
         }else{
             console.log("Employee Number or Password Wrong!!!")
+            res.render('pages/login');
         }
 
     })
 
     // Handle the login logic here
-    res.render('pages/login');
+    //res.render('pages/login');
 })
 
 
