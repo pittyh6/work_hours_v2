@@ -54,10 +54,8 @@ app.post('/login', (req, res) => {
         }
 
     })
-
-    // Handle the login logic here
-    //res.render('pages/login');
 })
+
 
 
 
