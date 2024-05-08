@@ -20,6 +20,27 @@ const app = express()
         res.status(500).send("Internal server error header info employee")
     }
 })*/
+// Middleware to set default employee information (if not logged in)
+app.use(async function (req, res, next) {
+    try {
+        // Check if user is logged in (you may need to implement this logic)
+        const isLoggedIn = req.session.isLoggedIn; // Assuming you use sessions for authentication
+        
+        // If user is logged in, fetch employee data
+        if (isLoggedIn) {
+            const employee = await Employee.findOne({ employeeId: 100002 });
+            res.locals.employee = employee;
+        } else {
+            // Set default values for employee (or set to null if appropriate)
+            res.locals.employee = { employeeFirstName: 'Guest', employeeId: 'Guest' };
+        }
+
+        next();
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal server error header info employee");
+    }
+});
 
 //import base routes
 const baseRoutes = require('./routes/base_routes')
