@@ -9,19 +9,19 @@ const app = express()
 
 
 //get the id and first name employee to send to header.ejs included in all pages
-/*app.use(async function (req, res, next) {
+app.use(async function (req, res, next) {
     try {
-        //const employee = await Employee.findOne({ employeeId: 100001 })
-        const employee = 000000
+        const employee = await Employee.findOne({ employeeId: 100001 })
+        //const employee = 000000
         res.locals.employee = employee
         next()
     } catch (error) {
         console.error(error)
         res.status(500).send("Internal server error header info employee")
     }
-})*/
+})
 // Middleware to set default employee information (if not logged in)
-app.use(async function (req, res, next) {
+/*app.use(async function (req, res, next) {
     try {
         // Check if user is logged in (you may need to implement this logic)
         const isLoggedIn = req.session.isLoggedIn; // Assuming you use sessions for authentication
@@ -40,7 +40,7 @@ app.use(async function (req, res, next) {
         console.error(error);
         res.status(500).send("Internal server error header info employee");
     }
-});
+});*/
 
 //import base routes
 const baseRoutes = require('./routes/base_routes')

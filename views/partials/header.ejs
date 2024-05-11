@@ -6,12 +6,12 @@
             </div>
             <img class="icon-menu" src="/img/menu-bar.png" alt="Menu Mobile access icon">
             <div class="staff-info">
-                <% if(employee){ %>
+                
                 <form class="employee-info-form" action="/employeeInfo" method="get">
                     <h2 class="staff-info-name"><%= employee.employeeFirstName %></h2>
                     <h2 class="staff-info-id"><%= employee.employeeId %></h2>
                 </form>
-                <%}%>
+               
             </div>
         </div>
         <div class="nav-bottom">
