@@ -7,11 +7,36 @@ const timeRouter = require('./routes/r_time')
 const app = express()
 
 
+const session = require('express-session');
+// Use express-session middleware
+app.use(session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: true
+}));
 
 //get the id and first name employee to send to header.ejs included in all pages
 app.use(async function (req, res, next) {
     try {
-        const employee = await Employee.findOne({ employeeId: 100001 })
+        // Access the username and password from the session
+        const { username, password } = req.session;
+        if (username && password) {
+            const employee = await Employee.findOne({ employeeId: username, employeePassword: password });
+            if (employee) {
+                res.locals.employee = employee;
+            }
+        }
+        next();
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal server error header info employee");
+    }
+});
+
+//get the id and first name employee to send to header.ejs included in all pages
+app.use('/login',async function (req, res, next) {
+    try {
+        const employee = await Employee.findOne({ employeeId: 000000 })
         //const employee = 000000
         res.locals.employee = employee
         next()
@@ -20,27 +45,7 @@ app.use(async function (req, res, next) {
         res.status(500).send("Internal server error header info employee")
     }
 })
-// Middleware to set default employee information (if not logged in)
-/*app.use(async function (req, res, next) {
-    try {
-        // Check if user is logged in (you may need to implement this logic)
-        const isLoggedIn = req.session.isLoggedIn; // Assuming you use sessions for authentication
-        
-        // If user is logged in, fetch employee data
-        if (isLoggedIn) {
-            const employee = await Employee.findOne({ employeeId: 100002 });
-            res.locals.employee = employee;
-        } else {
-            // Set default values for employee (or set to null if appropriate)
-            res.locals.employee = { employeeFirstName: 'Guest', employeeId: 'Guest' };
-        }
 
-        next();
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Internal server error header info employee");
-    }
-});*/
 
 //import base routes
 const baseRoutes = require('./routes/base_routes')
@@ -62,22 +67,31 @@ app.use('/api/time', timeRouter)
 //Server static files
 app.use(express.static('public'))
 
-
-/*app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
     const { username, password } = req.body;
     console.log('Received login request:', username, password);
-    const employeeData = Employee.findOne({ employeeId: username, employeePassword: password }).then((found) => {
-        if (found) {
-            console.log("employee founded: ", found)
-            res.render('pages/index');
+    try {
+        const employee = await Employee.findOne({ employeeId: username, employeePassword: password });
+        if (employee) {
+            console.log('Employee found: ', employee);
+            // Store the username and password in the session
+            req.session.username = username;
+            req.session.password = password;
+            res.locals.employee = employee; // set employee data in res.locals
+            res.render('pages/index', { employee});
         } else {
-            console.log("Employee Number or Password Wrong!!!")
+            console.log("Employee Number or Password Wrong!!!");
             res.render('pages/login');
         }
+    } catch (error) {
+        console.error("Error finding employee:", error.message);
+        res.status(500).send("Internal server error during login");
+    }
+});
 
-    })
-})*/
-app.post('/login', async (req, res) => {
+
+
+/*app.post('/login', async (req, res) => {
     const {username, password} = req.body
     console.log('Received login request:', username, password)
     try{
@@ -94,8 +108,7 @@ app.post('/login', async (req, res) => {
         console.error("Error finding employee:", error.message);
         res.status(500).send("Internal server error during login");
     }
-})
-
+})*/
 
 
 
