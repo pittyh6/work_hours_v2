@@ -15,6 +15,7 @@ app.use(session({
     saveUninitialized: true
 }));
 
+
 //get the id and first name employee to send to header.ejs included in all pages
 app.use(async function (req, res, next) {
     try {
@@ -45,8 +46,24 @@ app.use('/login',async function (req, res, next) {
         res.status(500).send("Internal server error header info employee")
     }
 })
-
-
+/*
+//get the id and first name employee to send to header.ejs included in all pages
+app.use('/:path(*)',async function (req, res, next) {
+    if(req.params.path !== 'login'){
+        
+        try {
+            const employee = await Employee.findOne({ employeeId: 000000 })
+            //const employee = 000000
+            res.locals.employee = employee
+            //res.render('pages/login')
+            next()
+        } catch (error) {
+            console.error(error)
+            res.status(500).send("Internal server error header info employee")
+        }
+    }
+})
+*/
 //import base routes
 const baseRoutes = require('./routes/base_routes')
 const { time } = require('console')
