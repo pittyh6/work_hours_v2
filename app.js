@@ -35,7 +35,7 @@ app.use(async function (req, res, next) {
 });
 
 //get the id and first name employee to send to header.ejs included in all pages
-app.use('/login',async function (req, res, next) {
+/*app.use('/login',async function (req, res, next) {
     try {
         const employee = await Employee.findOne({ employeeId: 000000 })
         //const employee = 000000
@@ -45,25 +45,41 @@ app.use('/login',async function (req, res, next) {
         console.error(error)
         res.status(500).send("Internal server error header info employee")
     }
-})
-/*
-//get the id and first name employee to send to header.ejs included in all pages
+})*/
+
 app.use('/:path(*)',async function (req, res, next) {
     if(req.params.path !== 'login'){
-        
+        const { username, password } = req.session;
+        if(username != undefined && password != undefined){
+            const employee = await Employee.findOne({ employeeId: username, employeePassword: password });
+            if (employee) {
+                res.locals.employee = employee;
+            }
+            next()
+        }else{
+            try {
+                const employee = await Employee.findOne({ employeeId: 000000 })
+                //const employee = 000000
+                res.locals.employee = employee
+                //res.render('pages/login')
+                next()
+            } catch (error) {
+                console.error(error)
+                res.status(500).send("Internal server error header info employee")
+            }
+        } 
+    }else{
         try {
             const employee = await Employee.findOne({ employeeId: 000000 })
             //const employee = 000000
             res.locals.employee = employee
-            //res.render('pages/login')
             next()
         } catch (error) {
             console.error(error)
             res.status(500).send("Internal server error header info employee")
-        }
+        } 
     }
 })
-*/
 //import base routes
 const baseRoutes = require('./routes/base_routes')
 const { time } = require('console')
