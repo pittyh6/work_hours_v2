@@ -75,6 +75,7 @@ app.use('/post', baseRoutes)
 app.use('/punch_log', baseRoutes)
 app.use('/login', baseRoutes)
 app.use('/punch', baseRoutes)
+app.use('/change_password', baseRoutes)
 
 //Set the view Engine EJS
 app.set('views', './views')
@@ -109,6 +110,14 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.post('/change_password', (req, res) => {
+    console.log('Change Password in app')
+    const {employeeIdNumber, old_password, new_password } = req.body
+    console.log("fetched employeeId: ", employeeIdNumber)
+    console.log("fetched old_password: ", old_password)
+    console.log("fetched new_password: ", new_password)
+    res.render('pages/change_password')
+})
 
 //Start Server
 const PORT = process.env.PORT || 3000

@@ -246,13 +246,14 @@ router.get('/post', async (req, res) => {
 
 /* ---------------------- --------- ---------------------- */
 
-/* ------------------------ Login ------------------------ */
-/*router.post('/login', async (req, res) => {
-    const { userId } = req.body
-    console.log("fetched login router: ", userId)
-
+/* ------------------- Change Password ------------------- */
+/*router.post('/change_password', async (req, res) =>{
+    const {employeeId } = req.body
+    const {old_password} = req.body
+    const {new_password } = req.body
+    console.log("fetched change password: ", employeeId, old_password, new_password)
 })*/
 /* ---------------------- --------- ---------------------- */
-
+ 
 
 module.exports = router
