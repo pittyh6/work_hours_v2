@@ -34,19 +34,6 @@ app.use(async function (req, res, next) {
     }
 });
 
-//get the id and first name employee to send to header.ejs included in all pages
-/*app.use('/login',async function (req, res, next) {
-    try {
-        const employee = await Employee.findOne({ employeeId: 000000 })
-        //const employee = 000000
-        res.locals.employee = employee
-        next()
-    } catch (error) {
-        console.error(error)
-        res.status(500).send("Internal server error header info employee")
-    }
-})*/
-
 app.use('/:path(*)',async function (req, res, next) {
     if(req.params.path !== 'login'){
         const { username, password } = req.session;
@@ -121,29 +108,6 @@ app.post('/login', async (req, res) => {
         res.status(500).send("Internal server error during login");
     }
 });
-
-
-
-/*app.post('/login', async (req, res) => {
-    const {username, password} = req.body
-    console.log('Received login request:', username, password)
-    try{
-        const employee = await Employee.findOne({ employeeId: username, employeePassword: password})
-        if(employee){
-            console.log('Employee found: ', employee)
-            res.locals.employee = employee //set employee data in res;locals
-            res.render('pages/index')
-        }else{
-            console.log("Employee Number or Password Wrong!!!");
-            res.render('pages/login');
-        }
-    }catch (error) {
-        console.error("Error finding employee:", error.message);
-        res.status(500).send("Internal server error during login");
-    }
-})*/
-
-
 
 
 //Start Server
