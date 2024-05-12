@@ -25,6 +25,10 @@ router.get('/login', (req, res) => {
 router.get('/punch', (req, res) => {
     res.render('pages/punch')
 })
+//Define change password route
+router.get('/change_password', (req,res) => {
+    res.render('pages/change_password')
+})
 
 module.exports = router;
 
