@@ -110,12 +110,24 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.post('/change_password', (req, res) => {
+app.post('/change_password', async (req, res) => {
     console.log('Change Password in app')
     const {employeeIdNumber, old_password, new_password } = req.body
     console.log("fetched employeeId: ", employeeIdNumber)
     console.log("fetched old_password: ", old_password)
     console.log("fetched new_password: ", new_password)
+
+    try{
+        const employee = await Employee.findOne({employeeId: employeeIdNumber, employeePassword: old_password})
+        if(employee){
+            console.log("founded employee and password: ", employee)
+        }else{
+            console.log("Did NOT found employee and password")
+        }
+    }catch(error){
+        console.error("Error find Employee and/or Password")
+    }
+
     res.render('pages/change_password')
 })
 
