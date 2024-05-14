@@ -118,9 +118,13 @@ app.post('/change_password', async (req, res) => {
     console.log("fetched new_password: ", new_password)
 
     try{
+        console.log("entered try")
         const employee = await Employee.findOne({employeeId: employeeIdNumber, employeePassword: old_password})
+        console.log("employee try: ", employee)
+        //if(employee != undefined || employee != null){
         if(employee){
-            console.log("founded employee and password: ", employee)
+            await Employee.findOneAndUpdate({employeeId:employeeIdNumber},{employeePassword:new_password})
+            res.render('pages/login')
         }else{
             console.log("Did NOT found employee and password")
         }
