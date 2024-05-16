@@ -19,6 +19,11 @@
                     <input type="submit" class="btn-login btns" id="btn-login-submit">
                 </div>
             </form>
+            <% if (typeof alert !== 'undefined' && message) { %>
+                <script>
+                    alert("<%= message %>");
+                </script>
+            <% } %>
         </main>
 
         <!-- FOOTER -->

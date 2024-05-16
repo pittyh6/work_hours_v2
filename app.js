@@ -124,15 +124,16 @@ app.post('/change_password', async (req, res) => {
         //if(employee != undefined || employee != null){
         if(employee){
             await Employee.findOneAndUpdate({employeeId:employeeIdNumber},{employeePassword:new_password})
-            res.render('pages/login')
+            res.render('pages/login', { alert: 'success', message: 'Password updated successfully. Please log in again.' })
         }else{
-            console.log("Did NOT found employee and password")
+            console.log("Did NOT find employee and password");
+            res.render('pages/change_password', { alert: 'error', message: 'Failed to update password. Please try again.' })
         }
     }catch(error){
         console.error("Error find Employee and/or Password")
+        res.render('pages/change_password')
     }
 
-    res.render('pages/change_password')
 })
 
 //Start Server
