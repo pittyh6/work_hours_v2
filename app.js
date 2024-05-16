@@ -127,7 +127,7 @@ app.post('/change_password', async (req, res) => {
             res.render('pages/login', { alert: 'success', message: 'Password updated successfully. Please log in again.' })
         }else{
             console.log("Did NOT find employee and password");
-            res.render('pages/change_password', { alert: 'error', message: 'Failed to update password. Please try again.' })
+            res.render('pages/change_password', { alert: 'error', message: 'User Id or Password invalid. Please try again.' })
         }
     }catch(error){
         console.error("Error find Employee and/or Password")
