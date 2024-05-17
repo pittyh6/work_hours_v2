@@ -31,4 +31,9 @@
             </div>
         </div>
     </nav>
+    <% if (typeof alert !== 'undefined' && message) { %>
+        <script>
+            alert("<%= message %>");
+        </script>
+    <% } %>
 </header>

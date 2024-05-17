@@ -93,11 +93,9 @@ app.use(express.static('public'))
 
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
-    console.log('Received login request:', username, password);
     try {
         const employee = await Employee.findOne({ employeeId: username, employeePassword: password });
         if (employee) {
-            console.log('Employee found: ', employee);
             // Store the username and password in the session
             req.session.username = username;
             req.session.password = password;
@@ -106,10 +104,9 @@ app.post('/login', async (req, res) => {
             res.locals.loginStatus = loginStatus
             res.render('pages/index', { employee});
         } else {
-            console.log("Employee Number or Password Wrong!!!");
             const loginStatus = 'Log In'
             res.locals.loginStatus = loginStatus
-            res.render('pages/login');
+            res.render('pages/login',{ alert: 'error', message: 'User Id or Password invalid. Please try again.' });
         }
     } catch (error) {
         console.error("Error finding employee:", error.message);
@@ -118,25 +115,17 @@ app.post('/login', async (req, res) => {
 });
 
 app.post('/change_password', async (req, res) => {
-    console.log('Change Password in app')
     const {employeeIdNumber, old_password, new_password } = req.body
-    console.log("fetched employeeId: ", employeeIdNumber)
-    console.log("fetched old_password: ", old_password)
-    console.log("fetched new_password: ", new_password)
-
     try{
-        console.log("entered try")
         const employee = await Employee.findOne({employeeId: employeeIdNumber, employeePassword: old_password})
-        console.log("employee try: ", employee)
         if(employee){
             await Employee.findOneAndUpdate({employeeId:employeeIdNumber},{employeePassword:new_password})
             res.render('pages/login', { alert: 'success', message: 'Password updated successfully. Please log in again.' })
         }else{
-            console.log("Did NOT find employee and password");
             res.render('pages/change_password', { alert: 'error', message: 'User Id or Password invalid. Please try again.' })
         }
     }catch(error){
-        console.error("Error find Employee and/or Password")
+        console.error("Error find Employee and/or Password", error.message)
         res.render('pages/change_password')
     }
 
