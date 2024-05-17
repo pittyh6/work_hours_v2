@@ -49,10 +49,8 @@ app.use('/:path(*)',async function (req, res, next) {
             try {
                 const employee = await Employee.findOne({ employeeId: 000000 })
                 const loginStatus = 'Log In'
-                //const employee = 000000
                 res.locals.employee = employee
                 res.locals.loginStatus = loginStatus
-                //res.render('pages/login')
                 next()
             } catch (error) {
                 console.error(error)
@@ -63,7 +61,6 @@ app.use('/:path(*)',async function (req, res, next) {
         try {
             const employee = await Employee.findOne({ employeeId: 000000 })
             const loginStatus = 'Log In'
-            //const employee = 000000
             res.locals.employee = employee
             res.locals.loginStatus = loginStatus
             next()
@@ -131,7 +128,6 @@ app.post('/change_password', async (req, res) => {
         console.log("entered try")
         const employee = await Employee.findOne({employeeId: employeeIdNumber, employeePassword: old_password})
         console.log("employee try: ", employee)
-        //if(employee != undefined || employee != null){
         if(employee){
             await Employee.findOneAndUpdate({employeeId:employeeIdNumber},{employeePassword:new_password})
             res.render('pages/login', { alert: 'success', message: 'Password updated successfully. Please log in again.' })
