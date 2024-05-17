@@ -105,9 +105,13 @@ app.post('/login', async (req, res) => {
             req.session.username = username;
             req.session.password = password;
             res.locals.employee = employee; // set employee data in res.locals
+            const loginStatus = 'Log Out'
+            res.locals.loginStatus = loginStatus
             res.render('pages/index', { employee});
         } else {
             console.log("Employee Number or Password Wrong!!!");
+            const loginStatus = 'Log In'
+            res.locals.loginStatus = loginStatus
             res.render('pages/login');
         }
     } catch (error) {
