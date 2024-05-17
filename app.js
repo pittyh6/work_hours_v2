@@ -39,15 +39,19 @@ app.use('/:path(*)',async function (req, res, next) {
         const { username, password } = req.session;
         if(username != undefined && password != undefined){
             const employee = await Employee.findOne({ employeeId: username, employeePassword: password });
+            const loginStatus = 'Log Out'
             if (employee) {
                 res.locals.employee = employee;
+                res.locals.loginStatus = loginStatus;
             }
             next()
         }else{
             try {
                 const employee = await Employee.findOne({ employeeId: 000000 })
+                const loginStatus = 'Log In'
                 //const employee = 000000
                 res.locals.employee = employee
+                res.locals.loginStatus = loginStatus
                 //res.render('pages/login')
                 next()
             } catch (error) {
@@ -58,8 +62,10 @@ app.use('/:path(*)',async function (req, res, next) {
     }else{
         try {
             const employee = await Employee.findOne({ employeeId: 000000 })
+            const loginStatus = 'Log In'
             //const employee = 000000
             res.locals.employee = employee
+            res.locals.loginStatus = loginStatus
             next()
         } catch (error) {
             console.error(error)
