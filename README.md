@@ -33,7 +33,7 @@ What can you do with it?
 * Mobile Verison <br>
 ![Begin Banner](/Documentation/mobile.gif)
 
-* Tablet Version 
+* Tablet Version <br>
 ![Begin Banner](/Documentation/tablet.gif)
 
 * Desktop Version: <br>
