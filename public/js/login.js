@@ -12,8 +12,6 @@ btn_login_submit.addEventListener('click', function (e) {
     e.preventDefault()
     const username = input_userId.value
     const password = input_password.value
-    console.log('btn_login_submit clicked: ', username)
-    console.log('btn_login_submit clicked: ', password)
 
     const options = {
         method: 'POST',
