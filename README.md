@@ -30,17 +30,17 @@ What can you do with it?
 
  ## Project Result 
 
-* Desktop Version: <br>
-![Begin Banner](/Documentation/desktopPunch.png)
-![Begin Banner](/Documentation/desktopHours.png)
-<!-- 
+* Mobile Verison <br>
+![Begin Banner](/Documentation/mobile.gif)
+
 * Tablet Version 
 ![Begin Banner](/Documentation/tablet.gif)
--->
 
-* Mobile Verison <br>
-![Begin Banner](/Documentation/mobilePunch.png)
-![Begin Banner](/Documentation/mobileHours.png)
+* Desktop Version: <br>
+![Begin Banner](/Documentation/desktop.gif)
+
+
+
 
 
 ## Previous Projects
