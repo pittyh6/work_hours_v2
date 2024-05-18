@@ -235,20 +235,22 @@ router.post('/post', async (req, res) => {
     console.log("fetched post employeeId: ", employeeId)
     console.log("fetched post employeeName: ", employeeName)
     console.log("fetched post text: ", post)
-
-    try {
-        if(post != '') {
-            const createPost = new Post({
-                employeeId: employeeId,
-                employeeName: employeeName,
-                post: post
-            })
-            createPost.save()
+    if(employeeId == ''){
+        console.log("Employee is not logged...")
+    }else{
+        try {
+            if(post != '') {
+                const createPost = new Post({
+                    employeeId: employeeId,
+                    employeeName: employeeName,
+                    post: post
+                })
+                createPost.save()
+            }
+        } catch (error) {
+            console.error("Error save post: ", error)
         }
-    } catch (error) {
-        console.error("Error save post: ", error)
     }
-
 })
 
 //return all posts
