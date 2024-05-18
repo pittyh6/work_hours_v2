@@ -17,9 +17,6 @@ btnSubmitPassword.addEventListener('click', (e) =>{
     const employeeIdNumber = insertId.value
     const old_password = oldPassword.value
     const new_password = newPassword.value
-    console.log("employee id: " + employeeIdNumber)
-    console.log("old_password : " + old_password)
-    console.log("new_password: " + new_password)
     const options = {
         method: 'POST',
         headers: {
