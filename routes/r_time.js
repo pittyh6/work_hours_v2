@@ -73,7 +73,6 @@ router.post('/breakStart', async (req, res) => {
     let day = new Intl.DateTimeFormat('en-GB', { dateStyle: 'short' }).format(todayDate)
     let weekDay = new Intl.DateTimeFormat('en-GB', { weekday: 'long' }).format(todayDate)
     let hour = new Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(todayDate)
-    console.log("todayDate: ", hour)
     Punch.findOne({ employeeId: employeeId, day: day }).then((punch) => {
         if (!punch) {
             try {
