@@ -232,9 +232,6 @@ router.post('/post', async (req, res) => {
     const { employeeId } = req.body
     const { employeeName } = req.body
     const { post } = req.body
-    console.log("fetched post employeeId: ", employeeId)
-    console.log("fetched post employeeName: ", employeeName)
-    console.log("fetched post text: ", post)
     if(employeeId == ''){
         console.log("Employee is not logged...")
     }else{
@@ -266,14 +263,5 @@ router.get('/post', async (req, res) => {
 
 /* ---------------------- --------- ---------------------- */
 
-/* ------------------- Change Password ------------------- */
-/*router.post('/change_password', async (req, res) =>{
-    const {employeeId } = req.body
-    const {old_password} = req.body
-    const {new_password } = req.body
-    console.log("fetched change password: ", employeeId, old_password, new_password)
-})*/
-/* ---------------------- --------- ---------------------- */
  
-
 module.exports = router
