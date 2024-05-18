@@ -40,12 +40,6 @@ What can you do with it?
 ![Begin Banner](/Documentation/desktop.gif)
 
 
-
-
-
-## Previous Projects
-* 12Mths Web Development Study [link](https://github.com/pittyh6/to_do_list-v2.2-12mths-web_dev) (To Do List - v2)
-
 <!-- 
 ## Management Tools
 * Jira(Sprints) [link](https://github.com/pittyh6/freeCodeCamp-responsive_web_design-3-12Mths-WebDevStudy-2022-2023/tree/master/Sprint)
